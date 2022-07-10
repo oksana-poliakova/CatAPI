@@ -20,6 +20,12 @@ final class StartScreenViewController: UIViewController {
         return tableView
     }()
     
+    private lazy var backgroundImage: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
+        return imageView
+    }()
+    
     private let refreshControl = UIRefreshControl()
     private let sideConstraint: CGFloat = 16.0
     private let cellID = "StartScreenViewController"
@@ -42,6 +48,8 @@ final class StartScreenViewController: UIViewController {
         setupUI()
         updateContent()
         pullToRefresh()
+        getData()
+        getBackgroundImage()
     }
     
     // MARK: - Setup UI
@@ -50,11 +58,18 @@ final class StartScreenViewController: UIViewController {
         view.backgroundColor = .white
         
         /// Appearance
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(tableView)
-        
+        [backgroundImage, tableView].forEach {
+            $0.translatesAutoresizingMaskIntoConstraints = false
+            view.addSubview($0)
+        }
+
         /// Constraints
         NSLayoutConstraint.activate([
+            backgroundImage.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            backgroundImage.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            backgroundImage.topAnchor.constraint(equalTo: view.topAnchor),
+            backgroundImage.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: sideConstraint),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -sideConstraint),
             tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
@@ -76,6 +91,54 @@ final class StartScreenViewController: UIViewController {
     @objc func refresh() {
         updateContent()
         refreshControl.endRefreshing()
+    }
+    
+    // MARK: - Getting data
+    
+    private func getData() {
+        guard let url = URL(string: "https://api.thecatapi.com/v1/images/search") else { return }
+        
+        URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
+            if let response = response {
+                print(response)
+            }
+            
+            if let error = error {
+                print(error)
+            }
+            
+            do {
+                guard let data = data else { return }
+                
+                let json = try JSONDecoder().decode(Posts.self, from: data)
+                print(json)
+            } catch {
+                print(error.localizedDescription)
+            }
+            
+        }.resume()
+    }
+    
+    private func getBackgroundImage() {
+        guard let url = URL(string: "https://api.thecatapi.com/v1/images/search") else { return }
+        
+        backgroundImage.load(url: url)
+    }
+}
+
+// MARK: - UIImageView
+
+extension UIImageView {
+    func load(url: URL) {
+        DispatchQueue.global().async { [weak self] in
+            if let data = try? Data(contentsOf: url) {
+                if let image = UIImage(data: data) {
+                    DispatchQueue.main.async {
+                        self?.image = image
+                    }
+                }
+            }
+        }
     }
 }
 
@@ -104,3 +167,4 @@ extension StartScreenViewController: UITableViewDataSource {
         return cell
     }
 }
+
