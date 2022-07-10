@@ -64,7 +64,7 @@ struct Breed: Codable {
     let shortLegs: Int?
     let wikipediaURL: String?
     let hypoallergenic: Int?
-    let referenceImageID: String?
+    let referenceImageID: String
 
     enum CodingKeys: String, CodingKey {
         case weight = "weight"

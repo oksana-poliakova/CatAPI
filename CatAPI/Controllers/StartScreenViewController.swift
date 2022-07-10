@@ -22,13 +22,14 @@ final class StartScreenViewController: UIViewController {
     
     private lazy var backgroundImage: UIImageView = {
         let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
         return imageView
     }()
     
     private let refreshControl = UIRefreshControl()
     private let sideConstraint: CGFloat = 16.0
     private let cellID = "StartScreenViewController"
+    private var post: Post? = nil
 
     // MARK: - Init
     
@@ -73,7 +74,7 @@ final class StartScreenViewController: UIViewController {
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: sideConstraint),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -sideConstraint),
             tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+            tableView.heightAnchor.constraint(equalToConstant: 150)
         ])
     }
     
@@ -99,28 +100,26 @@ final class StartScreenViewController: UIViewController {
         guard let url = URL(string: "https://api.thecatapi.com/v1/images/search") else { return }
         
         URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
-            if let response = response {
-                print(response)
-            }
-            
-            if let error = error {
-                print(error)
-            }
-            
-            do {
+            DispatchQueue.global(qos: .background).async {
                 guard let data = data else { return }
-                
-                let json = try JSONDecoder().decode(Posts.self, from: data)
-                print(json)
-            } catch {
-                print(error.localizedDescription)
+   
+                let posts = try? JSONDecoder().decode(Posts.self, from: data)
+
+                DispatchQueue.main.async {
+                    self?.post = posts?.first
+                    self?.getBackgroundImage()
+                }
             }
-            
         }.resume()
     }
     
     private func getBackgroundImage() {
-        guard let url = URL(string: "https://api.thecatapi.com/v1/images/search") else { return }
+        guard
+            let stringUrl = post?.url,
+            let url = URL(string: stringUrl)
+        else {
+            return
+        }
         
         backgroundImage.load(url: url)
     }
