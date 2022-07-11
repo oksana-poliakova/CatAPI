@@ -97,20 +97,10 @@ final class StartScreenViewController: UIViewController {
     // MARK: - Getting data
     
     private func getData() {
-        guard let url = URL(string: "https://api.thecatapi.com/v1/images/search") else { return }
-        
-        URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
-            DispatchQueue.global(qos: .background).async {
-                guard let data = data else { return }
-   
-                let posts = try? JSONDecoder().decode(Posts.self, from: data)
-
-                DispatchQueue.main.async {
-                    self?.post = posts?.first
-                    self?.getBackgroundImage()
-                }
-            }
-        }.resume()
+        NetworkManager.shared.fetchCatData { [weak self] post in
+            self?.post = post
+            self?.getBackgroundImage()
+        }
     }
     
     private func getBackgroundImage() {

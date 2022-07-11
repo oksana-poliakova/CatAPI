@@ -17,6 +17,7 @@
 		A11B889D2879CA0500D3A977 /* StartScreenTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11B889C2879CA0500D3A977 /* StartScreenTableViewCell.swift */; };
 		A11B88A72879D1CD00D3A977 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11B88A62879D1CD00D3A977 /* HeaderView.swift */; };
 		A11B88A92879D89C00D3A977 /* ImageContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11B88A82879D89B00D3A977 /* ImageContainerViewController.swift */; };
+		A11B88AC287C3E9F00D3A977 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11B88AB287C3E9F00D3A977 /* NetworkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		A11B889C2879CA0500D3A977 /* StartScreenTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScreenTableViewCell.swift; sourceTree = "<group>"; };
 		A11B88A62879D1CD00D3A977 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		A11B88A82879D89B00D3A977 /* ImageContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageContainerViewController.swift; sourceTree = "<group>"; };
+		A11B88AB287C3E9F00D3A977 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +69,7 @@
 				A11B88A22879CC2000D3A977 /* Application */,
 				A11B889E2879CB2E00D3A977 /* Model */,
 				A11B889F2879CB3400D3A977 /* Controllers */,
+				A11B88AA287C0FB700D3A977 /* Network Service */,
 				A11B88A02879CB3A00D3A977 /* View */,
 				A11B88A42879D19C00D3A977 /* Utilities */,
 				A11B88A32879CF3600D3A977 /* Resources */,
@@ -143,6 +146,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		A11B88AA287C0FB700D3A977 /* Network Service */ = {
+			isa = PBXGroup;
+			children = (
+				A11B88AB287C3E9F00D3A977 /* NetworkManager.swift */,
+			);
+			path = "Network Service";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -213,6 +224,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A11B88AC287C3E9F00D3A977 /* NetworkManager.swift in Sources */,
 				A11B88832879C12800D3A977 /* AppDelegate.swift in Sources */,
 				A11B889B2879C73900D3A977 /* CatsDescriptionViewController.swift in Sources */,
 				A11B88A92879D89C00D3A977 /* ImageContainerViewController.swift in Sources */,
