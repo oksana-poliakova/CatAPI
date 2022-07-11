@@ -14,6 +14,7 @@ final class CatsDescriptionViewController: UIViewController {
     private lazy var imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
+        imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
     
@@ -44,6 +45,7 @@ final class CatsDescriptionViewController: UIViewController {
     // MARK: - Setup UI
     
     private func setupUI() {
+        view.addSubview(imageView)
 
         NSLayoutConstraint.activate([
             imageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 50),
