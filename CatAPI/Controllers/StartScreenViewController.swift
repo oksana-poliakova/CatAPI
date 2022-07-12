@@ -97,7 +97,7 @@ final class StartScreenViewController: UIViewController {
     // MARK: - Getting data
     
     private func getData() {
-        NetworkManager.shared.fetchCatData { [weak self] post in
+        NetworkManager.shared.fetchPostImages { [weak self] post in
             self?.post = post
             self?.getBackgroundImage()
         }

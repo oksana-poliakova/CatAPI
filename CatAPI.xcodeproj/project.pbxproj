@@ -12,7 +12,7 @@
 		A11B888C2879C12A00D3A977 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A11B888B2879C12A00D3A977 /* Assets.xcassets */; };
 		A11B888F2879C12A00D3A977 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A11B888D2879C12A00D3A977 /* LaunchScreen.storyboard */; };
 		A11B88972879C3AF00D3A977 /* StartScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11B88962879C3AF00D3A977 /* StartScreenViewController.swift */; };
-		A11B88992879C6FB00D3A977 /* CatsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11B88982879C6FB00D3A977 /* CatsModel.swift */; };
+		A11B88992879C6FB00D3A977 /* Cats.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11B88982879C6FB00D3A977 /* Cats.swift */; };
 		A11B889B2879C73900D3A977 /* CatsDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11B889A2879C73900D3A977 /* CatsDescriptionViewController.swift */; };
 		A11B889D2879CA0500D3A977 /* StartScreenTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11B889C2879CA0500D3A977 /* StartScreenTableViewCell.swift */; };
 		A11B88A72879D1CD00D3A977 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11B88A62879D1CD00D3A977 /* HeaderView.swift */; };
@@ -23,6 +23,8 @@
 		A11B88B3287C8B7800D3A977 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11B88B2287C8B7800D3A977 /* TabBarViewController.swift */; };
 		A11B88B5287C8DFC00D3A977 /* BreedsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11B88B4287C8DFC00D3A977 /* BreedsViewController.swift */; };
 		A11B88B7287C8E7B00D3A977 /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11B88B6287C8E7B00D3A977 /* CategoriesViewController.swift */; };
+		A11B88D2287DBA2400D3A977 /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11B88D1287DBA2400D3A977 /* Categories.swift */; };
+		A11B88D6287DC06300D3A977 /* Breed.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11B88D5287DC06300D3A977 /* Breed.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,7 +35,7 @@
 		A11B888E2879C12A00D3A977 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A11B88902879C12A00D3A977 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A11B88962879C3AF00D3A977 /* StartScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScreenViewController.swift; sourceTree = "<group>"; };
-		A11B88982879C6FB00D3A977 /* CatsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsModel.swift; sourceTree = "<group>"; };
+		A11B88982879C6FB00D3A977 /* Cats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cats.swift; sourceTree = "<group>"; };
 		A11B889A2879C73900D3A977 /* CatsDescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsDescriptionViewController.swift; sourceTree = "<group>"; };
 		A11B889C2879CA0500D3A977 /* StartScreenTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScreenTableViewCell.swift; sourceTree = "<group>"; };
 		A11B88A62879D1CD00D3A977 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
@@ -44,6 +46,8 @@
 		A11B88B2287C8B7800D3A977 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		A11B88B4287C8DFC00D3A977 /* BreedsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedsViewController.swift; sourceTree = "<group>"; };
 		A11B88B6287C8E7B00D3A977 /* CategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
+		A11B88D1287DBA2400D3A977 /* Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
+		A11B88D5287DC06300D3A977 /* Breed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Breed.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,7 +95,9 @@
 		A11B889E2879CB2E00D3A977 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				A11B88982879C6FB00D3A977 /* CatsModel.swift */,
+				A11B88982879C6FB00D3A977 /* Cats.swift */,
+				A11B88D1287DBA2400D3A977 /* Categories.swift */,
+				A11B88D5287DC06300D3A977 /* Breed.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -253,13 +259,15 @@
 				A11B889B2879C73900D3A977 /* CatsDescriptionViewController.swift in Sources */,
 				A11B88A92879D89C00D3A977 /* ImageContainerViewController.swift in Sources */,
 				A11B88AE287C789400D3A977 /* CategoryViewController.swift in Sources */,
-				A11B88992879C6FB00D3A977 /* CatsModel.swift in Sources */,
+				A11B88992879C6FB00D3A977 /* Cats.swift in Sources */,
 				A11B88B3287C8B7800D3A977 /* TabBarViewController.swift in Sources */,
+				A11B88D6287DC06300D3A977 /* Breed.swift in Sources */,
 				A11B889D2879CA0500D3A977 /* StartScreenTableViewCell.swift in Sources */,
 				A11B88852879C12800D3A977 /* SceneDelegate.swift in Sources */,
 				A11B88B0287C7AED00D3A977 /* CategoryCollectionViewCell.swift in Sources */,
 				A11B88A72879D1CD00D3A977 /* HeaderView.swift in Sources */,
 				A11B88B7287C8E7B00D3A977 /* CategoriesViewController.swift in Sources */,
+				A11B88D2287DBA2400D3A977 /* Categories.swift in Sources */,
 				A11B88972879C3AF00D3A977 /* StartScreenViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

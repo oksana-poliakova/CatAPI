@@ -38,9 +38,11 @@ class BreedsViewController: UIViewController {
         setupUI()
     }
     
+    // MARK: - Setup UI
+    
     private func setupUI() {
         title = "List of Breeds"
-        
+        getBreeds()
         view.addSubview(breedsTitleLabel)
         
         NSLayoutConstraint.activate([
@@ -48,6 +50,20 @@ class BreedsViewController: UIViewController {
             breedsTitleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             breedsTitleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16)
         ])
+    }
+    
+    // MARK: - Getting data
+    
+    private func getBreeds() {
+        NetworkManager.shared.fetchBreeds { [weak self] result in
+            switch result {
+            case .success(let breed):
+                self?.breedsTitleLabel.text = breed.first?.name
+                print(breed)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
 
 }

@@ -1,33 +1,14 @@
 //
-//  CatsModel.swift
+//  Breed.swift
 //  CatAPI
 //
-//  Created by Oksana Poliakova on 09.07.2022.
+//  Created by Oksana Poliakova on 12.07.2022.
 //
 
 import Foundation
 
-// MARK: - Post
-
-struct Post: Codable {
-    let breeds: [Breed]?
-    let id: String?
-    let url: String?
-    let width: Int?
-    let height: Int?
-
-    enum CodingKeys: String, CodingKey {
-        case breeds = "breeds"
-        case id = "id"
-        case url = "url"
-        case width = "width"
-        case height = "height"
-    }
-}
-
-// MARK: - Breed
-
-struct Breed: Codable {
+// MARK: - BreedElement
+struct BreedElement: Codable {
     let weight: Weight?
     let id: String?
     let name: String?
@@ -64,7 +45,10 @@ struct Breed: Codable {
     let shortLegs: Int?
     let wikipediaURL: String?
     let hypoallergenic: Int?
-    let referenceImageID: String
+    let referenceImageID: String?
+    let image: Image?
+    let catFriendly: Int?
+    let bidability: Int?
 
     enum CodingKeys: String, CodingKey {
         case weight = "weight"
@@ -104,14 +88,31 @@ struct Breed: Codable {
         case wikipediaURL = "wikipedia_url"
         case hypoallergenic = "hypoallergenic"
         case referenceImageID = "reference_image_id"
+        case image = "image"
+        case catFriendly = "cat_friendly"
+        case bidability = "bidability"
+    }
+}
+
+// MARK: - Image
+struct Image: Codable {
+    let id: String?
+    let width: Int?
+    let height: Int?
+    let url: String?
+
+    enum CodingKeys: String, CodingKey {
+        case id = "id"
+        case width = "width"
+        case height = "height"
+        case url = "url"
     }
 }
 
 // MARK: - Weight
-
 struct Weight: Codable {
-    let imperial: String
-    let metric: String
+    let imperial: String?
+    let metric: String?
 
     enum CodingKeys: String, CodingKey {
         case imperial = "imperial"
@@ -119,5 +120,4 @@ struct Weight: Codable {
     }
 }
 
-typealias Posts = [Post]
-
+typealias Breed = [BreedElement]
