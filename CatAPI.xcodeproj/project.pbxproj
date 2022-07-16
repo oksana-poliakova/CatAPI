@@ -25,6 +25,7 @@
 		A11B88B7287C8E7B00D3A977 /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11B88B6287C8E7B00D3A977 /* CategoriesViewController.swift */; };
 		A11B88D2287DBA2400D3A977 /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11B88D1287DBA2400D3A977 /* Categories.swift */; };
 		A11B88D6287DC06300D3A977 /* Breed.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11B88D5287DC06300D3A977 /* Breed.swift */; };
+		A16B247E2882F1A3006353DA /* BreedsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16B247D2882F1A3006353DA /* BreedsTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		A11B88B6287C8E7B00D3A977 /* CategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
 		A11B88D1287DBA2400D3A977 /* Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
 		A11B88D5287DC06300D3A977 /* Breed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Breed.swift; sourceTree = "<group>"; };
+		A16B247D2882F1A3006353DA /* BreedsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedsTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				A11B889C2879CA0500D3A977 /* StartScreenTableViewCell.swift */,
+				A16B247D2882F1A3006353DA /* BreedsTableViewCell.swift */,
 				A11B88AF287C7AED00D3A977 /* CategoryCollectionViewCell.swift */,
 			);
 			path = Cells;
@@ -257,6 +260,7 @@
 				A11B88B5287C8DFC00D3A977 /* BreedsViewController.swift in Sources */,
 				A11B88832879C12800D3A977 /* AppDelegate.swift in Sources */,
 				A11B889B2879C73900D3A977 /* CatsDescriptionViewController.swift in Sources */,
+				A16B247E2882F1A3006353DA /* BreedsTableViewCell.swift in Sources */,
 				A11B88A92879D89C00D3A977 /* ImageContainerViewController.swift in Sources */,
 				A11B88AE287C789400D3A977 /* CategoryViewController.swift in Sources */,
 				A11B88992879C6FB00D3A977 /* Cats.swift in Sources */,

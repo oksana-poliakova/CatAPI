@@ -11,14 +11,17 @@ class BreedsViewController: UIViewController {
 
     // MARK: - Properties
     
-    private let breedsTitleLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 16)
-        label.textColor = .blue
-        label.text = "Breed 1"
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
+    private lazy var tableView: UITableView = {
+        let tableView = UITableView(frame: .zero)
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.register(BreedsTableViewCell.self, forCellReuseIdentifier: "BreedsTableViewCell")
+        return tableView
     }()
+    
+    private let cellID = "BreedsTableViewCell"
+    private var breed: Breed?
 
     // MARK: - Init
     
@@ -30,25 +33,26 @@ class BreedsViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
     // MARK: - Life cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        getBreeds()
     }
     
     // MARK: - Setup UI
     
     private func setupUI() {
         title = "List of Breeds"
-        getBreeds()
-        view.addSubview(breedsTitleLabel)
+        view.backgroundColor = .white
+        view.addSubview(tableView)
         
         NSLayoutConstraint.activate([
-            breedsTitleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 30),
-            breedsTitleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            breedsTitleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16)
+            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
     }
     
@@ -58,12 +62,32 @@ class BreedsViewController: UIViewController {
         NetworkManager.shared.fetchBreeds { [weak self] result in
             switch result {
             case .success(let breed):
-                self?.breedsTitleLabel.text = breed.first?.name
-                print(breed)
+                self?.breed = breed
+                self?.tableView.reloadData()
             case .failure(let error):
                 print(error.localizedDescription)
             }
         }
     }
+}
 
+// MARK: - UITableViewDataSource
+
+extension BreedsViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        breed?.count ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as? BreedsTableViewCell else { return UITableViewCell() }
+        cell.selectionStyle = .none
+        cell.configureCell(breed: breed?[indexPath.row])
+        return cell
+    }
+}
+
+// MARK: - UITableViewDelegate
+
+extension BreedsViewController: UITableViewDelegate {
+    
 }

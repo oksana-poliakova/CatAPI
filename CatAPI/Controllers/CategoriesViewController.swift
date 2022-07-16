@@ -11,6 +11,13 @@ class CategoriesViewController: UIViewController {
     
     // MARK: - Properties
     
+    private lazy var tableView: UITableView = {
+        let tableView = UITableView(frame: .zero)
+        tableView.dataSource = self
+        tableView.delegate = self
+        return tableView
+    }()
+    
     private let categoryTitleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 16)
@@ -49,4 +56,19 @@ class CategoriesViewController: UIViewController {
             categoryTitleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16)
         ])
     }
+}
+
+extension CategoriesViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return UITableViewCell()
+    }
+    
+}
+
+extension CategoriesViewController: UITableViewDelegate {
+    
 }
