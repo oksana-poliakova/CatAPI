@@ -1,16 +1,18 @@
 //
-//  BreedsTableViewCell.swift
+//  ListTableViewCell.swift
 //  CatAPI
 //
-//  Created by Oksana Poliakova on 16.07.2022.
+//  Created by Oksana Poliakova on 26.07.2022.
 //
 
 import UIKit
 
-final class BreedsTableViewCell: UITableViewCell {
+// MARK: - Basic cell for Breeds and Categories
 
-    // MARK: - Properties
+class ListTableViewCell: UITableViewCell {
     
+    // MARK: - Properties
+
     private lazy var titleLabel: UILabel = {
         let title = UILabel()
         title.font = UIFont.boldSystemFont(ofSize: 16)
@@ -18,9 +20,9 @@ final class BreedsTableViewCell: UITableViewCell {
         title.translatesAutoresizingMaskIntoConstraints = false
         return title
     }()
-    
+
     // MARK: - Init
-    
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
@@ -33,9 +35,11 @@ final class BreedsTableViewCell: UITableViewCell {
     
     // MARK: - Configuration
     
-    func configureCell(breed: BreedElement?) {
-        titleLabel.text = breed?.name
+    func configureCell(item: ItemModel) {
+        titleLabel.text = item.title
     }
+    
+    // MARK: - Setup UI
     
     private func setupUI() {
         contentView.addSubview(titleLabel)

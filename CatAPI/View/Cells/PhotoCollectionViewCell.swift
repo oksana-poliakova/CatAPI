@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CategoryCollectionViewCell: UICollectionViewCell {
+final class PhotoCollectionViewCell: UICollectionViewCell {
     
     public func configureCell(image: UIImage) {
 

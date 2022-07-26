@@ -26,12 +26,15 @@ class TabBarViewController: UITabBarController {
 
         view.backgroundColor = .white
         
-        let breedsVC = BreedsViewController()
-        breedsVC.tabBarItem = UITabBarItem(tabBarSystemItem: .bookmarks, tag: 0)
-        breedsVC.tabBarItem.title = "Breeds"
+        let breedServiceAdapter = BreedAdapter(api: NetworkManager.shared, endpoint: Endpoint.breeds)
+        let breedsVC = ListViewController(service: breedServiceAdapter)
+        breedsVC.tabBarItem = UITabBarItem(title: "Breeds", image: UIImage(named: "cat"), selectedImage: nil)
+        breedsVC.title = "List of Breeds"
         
-        let categoriesVC = CategoriesViewController()
-        categoriesVC.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 1)
+        let categoryServiceAdapter = CategoryAdapter(api: NetworkManager.shared, endpoint: Endpoint.categories)
+        let categoriesVC = ListViewController(service: categoryServiceAdapter)
+        categoriesVC.tabBarItem = UITabBarItem(title: "Categories", image: UIImage(named: "paw"), selectedImage: nil)
+        categoriesVC.title = "List of Categories"
         
         setViewControllers([UINavigationController(rootViewController: breedsVC), UINavigationController(rootViewController: categoriesVC)], animated: true)
     }

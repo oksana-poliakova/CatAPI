@@ -7,11 +7,11 @@
 
 import UIKit
 
-final class CategoryViewController: UIViewController {
+final class PhotoGalleryViewController: UIViewController {
     
     // MARK: - Properties
     
-    private lazy var categoriesCollectionView: UICollectionView = {
+    private lazy var photosCollectionView: UICollectionView = {
         let collectionView = UICollectionView()
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -50,20 +50,20 @@ final class CategoryViewController: UIViewController {
 
 // MARK: - UICollectionViewDataSource
 
-extension CategoryViewController: UICollectionViewDataSource {
+extension PhotoGalleryViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 3
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategoryCollectionViewCell", for: indexPath) as? CategoryCollectionViewCell else { return UICollectionViewCell() }
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategoryCollectionViewCell", for: indexPath) as? PhotoCollectionViewCell else { return UICollectionViewCell() }
         return cell
     }
 }
 
 // MARK: - UICollectionViewDelegateFlowLayout
 
-extension CategoryViewController: UICollectionViewDelegateFlowLayout {
+extension PhotoGalleryViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let frameCollectionView = collectionView.frame
         let widthCell = frameCollectionView.width / CGFloat(countCells)
@@ -80,7 +80,7 @@ extension CategoryViewController: UICollectionViewDelegateFlowLayout {
 
 // MARK: - UICollectionViewDelegate
 
-extension CategoryViewController: UICollectionViewDelegate {
+extension PhotoGalleryViewController: UICollectionViewDelegate {
     
 }
 

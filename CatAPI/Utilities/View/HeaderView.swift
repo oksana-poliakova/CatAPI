@@ -17,7 +17,7 @@ final class HeaderView: UIView {
     
     private let pageControl = UIPageControl(frame: .zero)
     private var pageController: UIPageViewController?
-    private var containerControllers: [ImageContainerViewController?] = []
+//    private var containerControllers: [ImageContainerViewController?] = []
     private var currentIndex: Int = 0
 
     // MARK: - Init

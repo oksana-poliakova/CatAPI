@@ -25,49 +25,33 @@ enum MyError: Error {
 final class NetworkManager {
     
     // MARK: - Properties
+    
     private let apiKeyString = "8d1dcf00-b9ce-4f19-9e22-e0520be65bd8"
     static let shared: NetworkManager = NetworkManager()
     
     private init() { }
-    
+
     // MARK: - Fetch data
-    
-    func fetchPostImages(completion: @escaping(Post) -> ()) {
-        guard let url = URL(string: URLProvider.baseURL + Endpoint.images) else { return }
+
+    func fetch<T: Decodable>(_ : T.Type = T.self,
+                             endPoint: String,
+                             completion: @escaping (Result<T, MyError>) -> Void) {
+        
+        guard let url = URL(string: URLProvider.baseURL + endPoint) else { return }
         
         URLSession.shared.dataTask(with: url) { data, response, error in
             DispatchQueue.global(qos: .background).async {
                 guard let data = data else { return }
    
-                let posts = try? JSONDecoder().decode(Posts.self, from: data)
-
-                guard let post = posts?.first else { return }
-                
-                DispatchQueue.main.async {
-                    completion(post)
-                }
-            }
-        }.resume()
-    }
-    
-    func fetchBreeds(completion: @escaping(Result<Breed, Error>) -> ()) {
-        guard let url = URL(string: URLProvider.baseURL + Endpoint.breeds) else { return }
-        
-        URLSession.shared.dataTask(with: url) { data, response, error in
-            DispatchQueue.global(qos: .background).async {
-                guard
-                    let data = data,
-                    let breeds = try? JSONDecoder().decode(Breed.self, from: data)
-                else {
+                guard let object = try? JSONDecoder().decode(T.self, from: data) else {
                     completion(.failure(MyError.cantParseValue))
                     return
                 }
                 
                 DispatchQueue.main.async {
-                    completion(.success(breeds))
+                    completion(.success(object))
                 }
             }
         }.resume()
     }
-    
 }

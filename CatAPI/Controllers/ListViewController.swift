@@ -1,14 +1,16 @@
 //
-//  BreedsViewController.swift
+//  ListViewController.swift
 //  CatAPI
 //
-//  Created by Oksana Poliakova on 11.07.2022.
+//  Created by Oksana Poliakova on 26.07.2022.
 //
 
 import UIKit
 
-class BreedsViewController: UIViewController {
+// MARK: - Basic class for Breeds and Categories
 
+class ListViewController: UIViewController {
+    
     // MARK: - Properties
     
     private lazy var tableView: UITableView = {
@@ -16,16 +18,18 @@ class BreedsViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.register(BreedsTableViewCell.self, forCellReuseIdentifier: "BreedsTableViewCell")
+        tableView.register(ListTableViewCell.self, forCellReuseIdentifier: "ListTableViewCell")
         return tableView
     }()
     
-    private let cellID = "BreedsTableViewCell"
-    private var breed: Breed?
+    private var items: [ItemModel] = []
+    private var service: ItemsNetworkService
+    private let cellID = "ListTableViewCell"
 
     // MARK: - Init
     
-    init() {
+    init(service: ItemsNetworkService) {
+        self.service = service
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -33,19 +37,18 @@ class BreedsViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    
     // MARK: - Life cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        getBreeds()
+        getCategories()
     }
     
     // MARK: - Setup UI
     
     private func setupUI() {
-        title = "List of Breeds"
-        view.backgroundColor = .white
         view.addSubview(tableView)
         
         NSLayoutConstraint.activate([
@@ -58,36 +61,32 @@ class BreedsViewController: UIViewController {
     
     // MARK: - Getting data
     
-    private func getBreeds() {
-        NetworkManager.shared.fetchBreeds { [weak self] result in
-            switch result {
-            case .success(let breed):
-                self?.breed = breed
-                self?.tableView.reloadData()
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
+    private func getCategories() {
+        service.fetch { [weak self] items in
+            self?.items = items
+            self?.tableView.reloadData()
         }
     }
 }
 
 // MARK: - UITableViewDataSource
 
-extension BreedsViewController: UITableViewDataSource {
+extension ListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        breed?.count ?? 0
+        items.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as? BreedsTableViewCell else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as? ListTableViewCell else { return UITableViewCell() }
         cell.selectionStyle = .none
-        cell.configureCell(breed: breed?[indexPath.row])
+        cell.configureCell(item: items[indexPath.row])
         return cell
     }
+    
 }
 
 // MARK: - UITableViewDelegate
 
-extension BreedsViewController: UITableViewDelegate {
+extension ListViewController: UITableViewDelegate {
     
 }
