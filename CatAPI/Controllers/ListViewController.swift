@@ -23,13 +23,12 @@ class ListViewController: UIViewController {
     }()
     
     private var items: [ItemModel] = []
-    private var service: ItemsNetworkService
+    var service: ItemsNetworkService?
     private let cellID = "ListTableViewCell"
 
     // MARK: - Init
     
-    init(service: ItemsNetworkService) {
-        self.service = service
+    init() {
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -62,7 +61,7 @@ class ListViewController: UIViewController {
     // MARK: - Getting data
     
     private func getCategories() {
-        service.fetch { [weak self] items in
+        service?.fetch { [weak self] items in
             self?.items = items
             self?.tableView.reloadData()
         }
@@ -88,5 +87,16 @@ extension ListViewController: UITableViewDataSource {
 // MARK: - UITableViewDelegate
 
 extension ListViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        items[indexPath.row].select()
+    }
+}
+
+// MARK: - Select Controller
+
+extension UIViewController {
+    func select() {
+        let vc = PhotoGalleryViewController()
+        show(vc, sender: self)
+    }
 }

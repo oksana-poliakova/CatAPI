@@ -46,9 +46,15 @@ final class PhotoGalleryViewController: UIViewController {
     // MARK: - Setup UI
     
     private func setupUI() {
+        view.addSubview(photosCollectionView)
         
+        NSLayoutConstraint.activate([
+            photosCollectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            photosCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            photosCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            photosCollectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+        ])
     }
-
 }
 
 // MARK: - UICollectionViewDataSource

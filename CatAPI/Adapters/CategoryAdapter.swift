@@ -12,6 +12,7 @@ import Foundation
 struct CategoryAdapter: ItemsNetworkService {
     let api: NetworkManager
     let endpoint: String
+    let select: () -> Void
     
     func fetch(completion: @escaping ([ItemModel]) -> ()) {
         api.fetch(Category.self, endPoint: endpoint) { result in
@@ -19,7 +20,9 @@ struct CategoryAdapter: ItemsNetworkService {
             case let .success(categories):
                 DispatchQueue.mainAsyncIfNeeded {
                     completion(categories.map({ categoryObject in
-                        ItemModel(title: categoryObject.name)
+                        ItemModel(title: categoryObject.name, select: {
+                            select()
+                        })
                     }))
                 }
             case let .failure(error):

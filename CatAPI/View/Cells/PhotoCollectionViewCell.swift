@@ -9,10 +9,14 @@ import UIKit
 
 final class PhotoCollectionViewCell: UICollectionViewCell {
     
+    private var photoImageView = UIImageView()
+    
     // MARK: - Init
 
    init() {
        super.init(frame: .zero)
+       
+       backgroundColor = .red
     }
     
     required init?(coder: NSCoder) {
@@ -22,7 +26,7 @@ final class PhotoCollectionViewCell: UICollectionViewCell {
     // MARK: - Configuration
     
     public func configureCell(image: UIImage) {
-
+        photoImageView.image = image
     }
 }
 

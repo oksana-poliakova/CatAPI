@@ -9,4 +9,5 @@ import Foundation
 
 struct ItemModel {
     let title: String?
+    let select: () -> Void
 }
