@@ -85,11 +85,11 @@
 			isa = PBXGroup;
 			children = (
 				A11B88A22879CC2000D3A977 /* Application */,
+				A11B88AA287C0FB700D3A977 /* Network Service */,
 				A13BFF95288FFEC7000B0403 /* Service */,
 				A13BFF94288FFEC1000B0403 /* Adapters */,
 				A11B889E2879CB2E00D3A977 /* Model */,
 				A11B889F2879CB3400D3A977 /* Controllers */,
-				A11B88AA287C0FB700D3A977 /* Network Service */,
 				A11B88A02879CB3A00D3A977 /* View */,
 				A11B88A42879D19C00D3A977 /* Utilities */,
 				A11B88A32879CF3600D3A977 /* Resources */,

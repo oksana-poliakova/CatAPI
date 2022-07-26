@@ -16,11 +16,14 @@ final class PhotoGalleryViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.backgroundColor = .white
+        collectionView.translatesAutoresizingMaskIntoConstraints = true
+        collectionView.register(PhotoCollectionViewCell.self, forCellWithReuseIdentifier: cellID)
         return collectionView
     }()
     
     private let countCells = 3
     private let offset: CGFloat = 1.0
+    private let cellID = "PhotoCollectionViewCell"
     
     // MARK: - Init
     

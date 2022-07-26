@@ -8,6 +8,7 @@
 import Foundation
 
 // MARK: - BreedElement
+
 struct BreedElement: Codable {
     let weight: Weight?
     let id: String?
