@@ -99,7 +99,7 @@ extension ListViewController: UITableViewDelegate {
 extension UIViewController {
     func select(id: String) {
         let vc = PhotoGalleryViewController()
-        let service = ImageAdapter(api: NetworkManager.shared, endpoint: Endpoint.imageByCategoryID + id)
+        let service = ImageNetworkServiceAdapter(api: NetworkManager.shared, endpoint: Endpoint.imageByCategoryID + id)
         vc.service = service
         show(vc, sender: self)
     }

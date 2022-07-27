@@ -13,7 +13,7 @@ final class PhotoGalleryViewController: UIViewController {
     
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
+        layout.scrollDirection = .vertical
         layout.minimumLineSpacing = 2
         
         let collectionView = UICollectionView(frame: .zero,
@@ -23,6 +23,10 @@ final class PhotoGalleryViewController: UIViewController {
         collectionView.contentInsetAdjustmentBehavior = .never
         collectionView.dataSource = self
         collectionView.delegate = self
+        collectionView.showsVerticalScrollIndicator = false
+        collectionView.isScrollEnabled = true
+        collectionView.alwaysBounceVertical = false
+        collectionView.alwaysBounceHorizontal = false
         
         collectionView.register(PhotoCollectionViewCell.self, forCellWithReuseIdentifier: "PhotoCollectionViewCell")
         
@@ -99,6 +103,18 @@ extension PhotoGalleryViewController: UICollectionViewDelegateFlowLayout {
         let heightCell = widthCell
         let spacing = CGFloat((countCells)) * offset / CGFloat(countCells)
         return CGSize(width: widthCell - spacing, height: heightCell - (offset * 1))
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+           return 2
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return .zero
+    }
+    
+   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+       return 1
     }
 }
 

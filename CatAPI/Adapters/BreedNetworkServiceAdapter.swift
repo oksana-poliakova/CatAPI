@@ -9,7 +9,7 @@ import Foundation
 
 // MARK: - Adapter for getting breeds
 
-struct BreedAdapter: ItemsNetworkService {
+struct BreedNetworkServiceAdapter: ItemsNetworkService {
     let api: NetworkManager
     let endpoint: String
     let select: (_ id: String) -> Void

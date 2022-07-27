@@ -12,7 +12,7 @@ enum Endpoint {
     static let images = "/images/search"
     static let breeds = "/breeds"
     static let categories = "/categories"
-    static let imageByCategoryID = images + "?limit=30&page=0&category_id="
+    static let imageByCategoryID = images + "?limit=20&page=0&category_id="
 }
 
 enum URLProvider {
@@ -42,7 +42,7 @@ final class NetworkManager {
     
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = "GET"
-        urlRequest.setValue("x-api-key", forHTTPHeaderField: apiKeyString)
+        urlRequest.setValue(apiKeyString, forHTTPHeaderField: "x-api-key")
         
         URLSession.shared.dataTask(with: urlRequest) { data, response, error in
             DispatchQueue.global(qos: .background).async {

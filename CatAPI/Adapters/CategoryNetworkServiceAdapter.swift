@@ -9,7 +9,7 @@ import Foundation
 
 // MARK: - Adapter for getting categories
 
-struct CategoryAdapter: ItemsNetworkService {
+struct CategoryNetworkServiceAdapter: ItemsNetworkService {
     let api: NetworkManager
     let endpoint: String
     let select: (_ id: String) -> Void

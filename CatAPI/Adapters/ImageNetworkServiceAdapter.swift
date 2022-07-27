@@ -9,7 +9,7 @@ import Foundation
 
 // MARK: - Adapter for getting images
 
-struct ImageAdapter: ItemsNetworkService {
+struct ImageNetworkServiceAdapter: ItemsNetworkService {
     let api: NetworkManager
     let endpoint: String
     let select: ((_ id: String) -> Void)? = nil

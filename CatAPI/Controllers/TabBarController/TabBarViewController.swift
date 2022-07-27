@@ -27,7 +27,7 @@ class TabBarViewController: UITabBarController {
         view.backgroundColor = .white
         
         let breedsVC = ListViewController()
-        let breedServiceAdapter = BreedAdapter(api: NetworkManager.shared, endpoint: Endpoint.breeds, select: { [weak breedsVC] id in
+        let breedServiceAdapter = BreedNetworkServiceAdapter(api: NetworkManager.shared, endpoint: Endpoint.breeds, select: { [weak breedsVC] id in
             breedsVC?.select(id: id)
         })
         
@@ -36,7 +36,7 @@ class TabBarViewController: UITabBarController {
         breedsVC.title = "List of Breeds"
         
         let categoriesVC = ListViewController()
-        let categoryServiceAdapter = CategoryAdapter(api: NetworkManager.shared, endpoint: Endpoint.categories, select: { [weak categoriesVC] id in
+        let categoryServiceAdapter = CategoryNetworkServiceAdapter(api: NetworkManager.shared, endpoint: Endpoint.categories, select: { [weak categoriesVC] id in
             categoriesVC?.select(id: id)
         })
         
