@@ -13,20 +13,34 @@ final class PhotoCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Init
 
-   init() {
-       super.init(frame: .zero)
-       
-       backgroundColor = .red
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        setupUI()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    private func setupUI() {
+        photoImageView.translatesAutoresizingMaskIntoConstraints = false
+        contentView.addSubview(photoImageView)
+        
+        NSLayoutConstraint.activate([
+            photoImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            photoImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            photoImageView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            photoImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+        ])
+    }
+    
     // MARK: - Configuration
     
-    public func configureCell(image: UIImage) {
-        photoImageView.image = image
+    public func configureCell(model: ItemModel) {
+        guard let url = model.url else { return }
+        
+        photoImageView.load(url: url)
     }
 }
 

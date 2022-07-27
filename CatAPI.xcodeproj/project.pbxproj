@@ -27,6 +27,8 @@
 		A13BFF9B288FFF3C000B0403 /* BreedAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13BFF9A288FFF3C000B0403 /* BreedAdapter.swift */; };
 		A13BFF9D288FFF4B000B0403 /* CategoryAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13BFF9C288FFF4B000B0403 /* CategoryAdapter.swift */; };
 		A13BFFA02890081C000B0403 /* DispatchQueue+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13BFF9F2890081C000B0403 /* DispatchQueue+Extensions.swift */; };
+		A13BFFA22891595B000B0403 /* ImageAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13BFFA12891595B000B0403 /* ImageAdapter.swift */; };
+		A13BFFA528915A4D000B0403 /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13BFFA428915A4D000B0403 /* UIImageView+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +54,8 @@
 		A13BFF9A288FFF3C000B0403 /* BreedAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedAdapter.swift; sourceTree = "<group>"; };
 		A13BFF9C288FFF4B000B0403 /* CategoryAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryAdapter.swift; sourceTree = "<group>"; };
 		A13BFF9F2890081C000B0403 /* DispatchQueue+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+Extensions.swift"; sourceTree = "<group>"; };
+		A13BFFA12891595B000B0403 /* ImageAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAdapter.swift; sourceTree = "<group>"; };
+		A13BFFA428915A4D000B0403 /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,8 +118,8 @@
 			children = (
 				A11B88B1287C8B5D00D3A977 /* TabBarController */,
 				A11B889A2879C73900D3A977 /* CatsDescriptionViewController.swift */,
-				A11B88AD287C789400D3A977 /* PhotoGalleryViewController.swift */,
 				A13BFF92288FFADC000B0403 /* ListViewController.swift */,
+				A11B88AD287C789400D3A977 /* PhotoGalleryViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -193,6 +197,7 @@
 			children = (
 				A13BFF9A288FFF3C000B0403 /* BreedAdapter.swift */,
 				A13BFF9C288FFF4B000B0403 /* CategoryAdapter.swift */,
+				A13BFFA12891595B000B0403 /* ImageAdapter.swift */,
 			);
 			path = Adapters;
 			sourceTree = "<group>";
@@ -209,6 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				A13BFF9F2890081C000B0403 /* DispatchQueue+Extensions.swift */,
+				A13BFFA428915A4D000B0403 /* UIImageView+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -283,12 +289,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A13BFFA22891595B000B0403 /* ImageAdapter.swift in Sources */,
 				A11B88AC287C3E9F00D3A977 /* NetworkManager.swift in Sources */,
 				A11B88832879C12800D3A977 /* AppDelegate.swift in Sources */,
 				A11B889B2879C73900D3A977 /* CatsDescriptionViewController.swift in Sources */,
 				A11B88AE287C789400D3A977 /* PhotoGalleryViewController.swift in Sources */,
 				A11B88992879C6FB00D3A977 /* Cats.swift in Sources */,
 				A13BFF91288FFAA8000B0403 /* ListTableViewCell.swift in Sources */,
+				A13BFFA528915A4D000B0403 /* UIImageView+Extensions.swift in Sources */,
 				A11B88B3287C8B7800D3A977 /* TabBarViewController.swift in Sources */,
 				A11B88D6287DC06300D3A977 /* Breed.swift in Sources */,
 				A13BFFA02890081C000B0403 /* DispatchQueue+Extensions.swift in Sources */,

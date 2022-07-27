@@ -88,15 +88,19 @@ extension ListViewController: UITableViewDataSource {
 
 extension ListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        items[indexPath.row].select()
+        let id = items[indexPath.row].id
+        
+        items[indexPath.row].select?(id)
     }
 }
 
 // MARK: - Select Controller
 
 extension UIViewController {
-    func select() {
+    func select(id: String) {
         let vc = PhotoGalleryViewController()
+        let service = ImageAdapter(api: NetworkManager.shared, endpoint: Endpoint.imageByCategoryID + id)
+        vc.service = service
         show(vc, sender: self)
     }
 }

@@ -8,6 +8,15 @@
 import Foundation
 
 struct ItemModel {
-    let title: String?
-    let select: () -> Void
+    let id: String
+    var title: String? = nil
+    var url: URL? = nil
+    let select: ((_ id: String) -> Void)?
+    
+    init(id: String, title: String? = nil, url: URL? = nil, select: ((_ id: String) -> Void)? = nil) {
+        self.id = id
+        self.title = title
+        self.url = url
+        self.select = select
+    }
 }

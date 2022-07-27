@@ -10,7 +10,7 @@ import Foundation
 // MARK: - CategoryElement
 
 struct CategoryElement: Codable {
-    let id: Int?
+    let id: Int
     let name: String?
 
     enum CodingKeys: String, CodingKey {

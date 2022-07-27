@@ -11,7 +11,7 @@ import Foundation
 
 struct BreedElement: Codable {
     let weight: Weight?
-    let id: String?
+    let id: String
     let name: String?
     let cfaURL: String?
     let vetstreetURL: String?

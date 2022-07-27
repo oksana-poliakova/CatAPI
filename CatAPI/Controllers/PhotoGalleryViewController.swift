@@ -11,19 +11,29 @@ final class PhotoGalleryViewController: UIViewController {
     
     // MARK: - Properties
     
-    private lazy var photosCollectionView: UICollectionView = {
-        let collectionView = UICollectionView()
+    private lazy var collectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        layout.minimumLineSpacing = 2
+        
+        let collectionView = UICollectionView(frame: .zero,
+                                              collectionViewLayout: layout)
+        
+        collectionView.alwaysBounceHorizontal = true
+        collectionView.contentInsetAdjustmentBehavior = .never
         collectionView.dataSource = self
         collectionView.delegate = self
-        collectionView.backgroundColor = .white
-        collectionView.translatesAutoresizingMaskIntoConstraints = true
-        collectionView.register(PhotoCollectionViewCell.self, forCellWithReuseIdentifier: cellID)
+        
+        collectionView.register(PhotoCollectionViewCell.self, forCellWithReuseIdentifier: "PhotoCollectionViewCell")
+        
         return collectionView
     }()
     
     private let countCells = 3
     private let offset: CGFloat = 1.0
     private let cellID = "PhotoCollectionViewCell"
+    private var items: [ItemModel] = []
+    var service: ItemsNetworkService?
     
     // MARK: - Init
     
@@ -35,24 +45,33 @@ final class PhotoGalleryViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
     // MARK: - Life cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setupUI()
+        loadItems()
+    }
+    
+    private func loadItems() {
+        service?.fetch { [weak self] items in
+            self?.items = items
+            self?.collectionView.reloadData()
+        }
     }
     
     // MARK: - Setup UI
     
     private func setupUI() {
-        view.addSubview(photosCollectionView)
+        view.addSubview(collectionView)
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            photosCollectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            photosCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            photosCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            photosCollectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+            collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
     }
 }
@@ -61,11 +80,12 @@ final class PhotoGalleryViewController: UIViewController {
 
 extension PhotoGalleryViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return items.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategoryCollectionViewCell", for: indexPath) as? PhotoCollectionViewCell else { return UICollectionViewCell() }
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCollectionViewCell", for: indexPath) as? PhotoCollectionViewCell else { return UICollectionViewCell() }
+        cell.configureCell(model: items[indexPath.row])
         return cell
     }
 }
@@ -79,11 +99,6 @@ extension PhotoGalleryViewController: UICollectionViewDelegateFlowLayout {
         let heightCell = widthCell
         let spacing = CGFloat((countCells)) * offset / CGFloat(countCells)
         return CGSize(width: widthCell - spacing, height: heightCell - (offset * 1))
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout,
-                        minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 2.0
     }
 }
 
