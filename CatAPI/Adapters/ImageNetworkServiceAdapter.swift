@@ -12,7 +12,6 @@ import Foundation
 struct ImageNetworkServiceAdapter: ItemsNetworkService {
     let api: NetworkManager
     let endpoint: String
-    let select: ((_ id: String) -> Void)? = nil
     
     func fetch(completion: @escaping ([ItemModel]) -> ()) {
         api.fetch([Image].self, endPoint: endpoint) { result in
@@ -20,7 +19,7 @@ struct ImageNetworkServiceAdapter: ItemsNetworkService {
             case let .success(images):
                 DispatchQueue.mainAsyncIfNeeded {
                     completion(images.map({ image in
-                        ItemModel(id: image.id ?? "", url: URL(string: image.url ?? ""))
+                        ItemModel(image: image)
                     }))
                 }
             case let .failure(error):

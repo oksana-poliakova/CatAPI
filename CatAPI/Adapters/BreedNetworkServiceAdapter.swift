@@ -12,7 +12,7 @@ import Foundation
 struct BreedNetworkServiceAdapter: ItemsNetworkService {
     let api: NetworkManager
     let endpoint: String
-    let select: (_ id: String) -> Void
+    let select: ((BreedElement) -> Void)?
     
     func fetch(completion: @escaping ([ItemModel]) -> ()) {
         api.fetch(Breed.self, endPoint: endpoint) { result in
@@ -20,9 +20,9 @@ struct BreedNetworkServiceAdapter: ItemsNetworkService {
             case let .success(breed):
                 DispatchQueue.mainAsyncIfNeeded {
                     completion(breed.map({ breedElement in
-                        ItemModel(id: breedElement.id, title: breedElement.name, select: { id in
-                            select(id)
-                        })
+                        ItemModel(breed: breedElement) {
+                            select?(breedElement)
+                        }
                     }))
                 }
             case let .failure(error):

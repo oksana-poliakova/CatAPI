@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D250AA7A0A6992B7DF42A1B /* Pods_CatAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 627B4683D75E1C13DBA37FE9 /* Pods_CatAPI.framework */; };
 		A11B88832879C12800D3A977 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11B88822879C12800D3A977 /* AppDelegate.swift */; };
 		A11B88852879C12800D3A977 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11B88842879C12800D3A977 /* SceneDelegate.swift */; };
 		A11B888C2879C12A00D3A977 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A11B888B2879C12A00D3A977 /* Assets.xcassets */; };
 		A11B888F2879C12A00D3A977 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A11B888D2879C12A00D3A977 /* LaunchScreen.storyboard */; };
 		A11B88992879C6FB00D3A977 /* Cats.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11B88982879C6FB00D3A977 /* Cats.swift */; };
-		A11B889B2879C73900D3A977 /* CatsDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11B889A2879C73900D3A977 /* CatsDescriptionViewController.swift */; };
 		A11B88A72879D1CD00D3A977 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11B88A62879D1CD00D3A977 /* HeaderView.swift */; };
 		A11B88AC287C3E9F00D3A977 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11B88AB287C3E9F00D3A977 /* NetworkManager.swift */; };
 		A11B88AE287C789400D3A977 /* PhotoGalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11B88AD287C789400D3A977 /* PhotoGalleryViewController.swift */; };
@@ -29,9 +29,15 @@
 		A13BFFA02890081C000B0403 /* DispatchQueue+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13BFF9F2890081C000B0403 /* DispatchQueue+Extensions.swift */; };
 		A13BFFA22891595B000B0403 /* ImageNetworkServiceAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13BFFA12891595B000B0403 /* ImageNetworkServiceAdapter.swift */; };
 		A13BFFA528915A4D000B0403 /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13BFFA428915A4D000B0403 /* UIImageView+Extensions.swift */; };
+		A1460FD328929B5B00AF1E93 /* BreedDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1460FD228929B5B00AF1E93 /* BreedDescriptionViewController.swift */; };
+		A1460FD72892A3DB00AF1E93 /* ImagePagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1460FD62892A3DB00AF1E93 /* ImagePagerView.swift */; };
+		A1460FD92892A5D500AF1E93 /* BreedDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1460FD82892A5D500AF1E93 /* BreedDescriptionView.swift */; };
+		A1460FDB2892B40400AF1E93 /* BaseLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1460FDA2892B40400AF1E93 /* BaseLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		09E3BA6DFF237571682E3E8D /* Pods-CatAPI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CatAPI.release.xcconfig"; path = "Target Support Files/Pods-CatAPI/Pods-CatAPI.release.xcconfig"; sourceTree = "<group>"; };
+		627B4683D75E1C13DBA37FE9 /* Pods_CatAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CatAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A11B887F2879C12800D3A977 /* CatAPI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CatAPI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A11B88822879C12800D3A977 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A11B88842879C12800D3A977 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -39,7 +45,6 @@
 		A11B888E2879C12A00D3A977 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A11B88902879C12A00D3A977 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A11B88982879C6FB00D3A977 /* Cats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cats.swift; sourceTree = "<group>"; };
-		A11B889A2879C73900D3A977 /* CatsDescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsDescriptionViewController.swift; sourceTree = "<group>"; };
 		A11B88A62879D1CD00D3A977 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		A11B88AB287C3E9F00D3A977 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		A11B88AD287C789400D3A977 /* PhotoGalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoGalleryViewController.swift; sourceTree = "<group>"; };
@@ -56,6 +61,11 @@
 		A13BFF9F2890081C000B0403 /* DispatchQueue+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+Extensions.swift"; sourceTree = "<group>"; };
 		A13BFFA12891595B000B0403 /* ImageNetworkServiceAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageNetworkServiceAdapter.swift; sourceTree = "<group>"; };
 		A13BFFA428915A4D000B0403 /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
+		A1460FD228929B5B00AF1E93 /* BreedDescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedDescriptionViewController.swift; sourceTree = "<group>"; };
+		A1460FD62892A3DB00AF1E93 /* ImagePagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePagerView.swift; sourceTree = "<group>"; };
+		A1460FD82892A5D500AF1E93 /* BreedDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedDescriptionView.swift; sourceTree = "<group>"; };
+		A1460FDA2892B40400AF1E93 /* BaseLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseLabel.swift; sourceTree = "<group>"; };
+		E4E1167757FB92DDC7112807 /* Pods-CatAPI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CatAPI.debug.xcconfig"; path = "Target Support Files/Pods-CatAPI/Pods-CatAPI.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,17 +73,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D250AA7A0A6992B7DF42A1B /* Pods_CatAPI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4F302CB201CD991D6F2A5651 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				627B4683D75E1C13DBA37FE9 /* Pods_CatAPI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		90C0D7E232788C29060CC286 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E4E1167757FB92DDC7112807 /* Pods-CatAPI.debug.xcconfig */,
+				09E3BA6DFF237571682E3E8D /* Pods-CatAPI.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		A11B88762879C12800D3A977 = {
 			isa = PBXGroup;
 			children = (
 				A11B88812879C12800D3A977 /* CatAPI */,
 				A11B88802879C12800D3A977 /* Products */,
+				90C0D7E232788C29060CC286 /* Pods */,
+				4F302CB201CD991D6F2A5651 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -117,9 +147,9 @@
 			isa = PBXGroup;
 			children = (
 				A11B88B1287C8B5D00D3A977 /* TabBarController */,
-				A11B889A2879C73900D3A977 /* CatsDescriptionViewController.swift */,
 				A13BFF92288FFADC000B0403 /* ListViewController.swift */,
 				A11B88AD287C789400D3A977 /* PhotoGalleryViewController.swift */,
+				A1460FD228929B5B00AF1E93 /* BreedDescriptionViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -127,6 +157,9 @@
 		A11B88A02879CB3A00D3A977 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A1460FD62892A3DB00AF1E93 /* ImagePagerView.swift */,
+				A1460FDA2892B40400AF1E93 /* BaseLabel.swift */,
+				A1460FD82892A5D500AF1E93 /* BreedDescriptionView.swift */,
 				A11B88A12879CBE800D3A977 /* Cells */,
 			);
 			path = View;
@@ -226,9 +259,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A11B88932879C12A00D3A977 /* Build configuration list for PBXNativeTarget "CatAPI" */;
 			buildPhases = (
+				6F4B8AE5A04E13C0D6945F8D /* [CP] Check Pods Manifest.lock */,
 				A11B887B2879C12800D3A977 /* Sources */,
 				A11B887C2879C12800D3A977 /* Frameworks */,
 				A11B887D2879C12800D3A977 /* Resources */,
+				681CD3B0B887F94E60ADFF7A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -284,6 +319,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		681CD3B0B887F94E60ADFF7A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CatAPI/Pods-CatAPI-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CatAPI/Pods-CatAPI-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CatAPI/Pods-CatAPI-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6F4B8AE5A04E13C0D6945F8D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CatAPI-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		A11B887B2879C12800D3A977 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -292,9 +369,10 @@
 				A13BFFA22891595B000B0403 /* ImageNetworkServiceAdapter.swift in Sources */,
 				A11B88AC287C3E9F00D3A977 /* NetworkManager.swift in Sources */,
 				A11B88832879C12800D3A977 /* AppDelegate.swift in Sources */,
-				A11B889B2879C73900D3A977 /* CatsDescriptionViewController.swift in Sources */,
+				A1460FDB2892B40400AF1E93 /* BaseLabel.swift in Sources */,
 				A11B88AE287C789400D3A977 /* PhotoGalleryViewController.swift in Sources */,
 				A11B88992879C6FB00D3A977 /* Cats.swift in Sources */,
+				A1460FD328929B5B00AF1E93 /* BreedDescriptionViewController.swift in Sources */,
 				A13BFF91288FFAA8000B0403 /* ListTableViewCell.swift in Sources */,
 				A13BFFA528915A4D000B0403 /* UIImageView+Extensions.swift in Sources */,
 				A11B88B3287C8B7800D3A977 /* TabBarViewController.swift in Sources */,
@@ -307,8 +385,10 @@
 				A11B88B0287C7AED00D3A977 /* PhotoCollectionViewCell.swift in Sources */,
 				A11B88A72879D1CD00D3A977 /* HeaderView.swift in Sources */,
 				A11B88D2287DBA2400D3A977 /* Category.swift in Sources */,
+				A1460FD72892A3DB00AF1E93 /* ImagePagerView.swift in Sources */,
 				A13BFF93288FFADC000B0403 /* ListViewController.swift in Sources */,
 				A13BFF9D288FFF4B000B0403 /* CategoryNetworkServiceAdapter.swift in Sources */,
+				A1460FD92892A5D500AF1E93 /* BreedDescriptionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -442,6 +522,7 @@
 		};
 		A11B88942879C12A00D3A977 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E4E1167757FB92DDC7112807 /* Pods-CatAPI.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -472,6 +553,7 @@
 		};
 		A11B88952879C12A00D3A977 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 09E3BA6DFF237571682E3E8D /* Pods-CatAPI.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
