@@ -24,6 +24,12 @@ class ImagePagerView: UIView {
         let pageControl = FSPageControl(frame: .zero)
         return pageControl
     }()
+    
+    public var itemModel: [ItemModel] = [] {
+        didSet {
+            pagerView.reloadData()
+        }
+    }
         
     // MARK: - Init
     
@@ -58,19 +64,25 @@ class ImagePagerView: UIView {
     }
 }
 
-extension ImagePagerView: FSPagerViewDelegate {
-    
-}
+// MARK: - FSPagerViewDataSource
 
 extension ImagePagerView: FSPagerViewDataSource {
     func numberOfItems(in pagerView: FSPagerView) -> Int {
-        return 5
+        return itemModel.count
     }
     
     func pagerView(_ pagerView: FSPagerView, cellForItemAt index: Int) -> FSPagerViewCell {
+        guard let url = itemModel[index].url else { return FSPagerViewCell() }
+        
         let cell = pagerView.dequeueReusableCell(withReuseIdentifier: "cell", at: index)
-        cell.imageView?.image = nil
+        cell.imageView?.load(url: url)
         cell.imageView?.contentMode = .scaleAspectFit
         return cell
     }
+}
+
+// MARK: - FSPagerViewDelegate
+
+extension ImagePagerView: FSPagerViewDelegate {
+    
 }

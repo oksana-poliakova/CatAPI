@@ -94,16 +94,18 @@ extension ListViewController: UITableViewDelegate {
 
 // MARK: - Select Breed
 
-extension UIViewController {
+extension ListViewController {
     func select(breed: BreedElement) {
         let vc = BreedDescriptionViewController()
+        let service = CatsNetworkServiceAdapter(api: NetworkManager.shared, endpoint: Endpoint.breedByID + breed.id)
+        vc.service = service
         show(vc, sender: self)
     }
 }
 
 // MARK: - Select Category
 
-extension UIViewController {
+extension ListViewController {
     func select(category: CategoryElement) {
         let vc = PhotoGalleryViewController()
         let service = ImageNetworkServiceAdapter(api: NetworkManager.shared, endpoint: Endpoint.imageByCategoryID + "\(category.id)")

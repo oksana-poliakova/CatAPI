@@ -7,9 +7,9 @@
 
 import Foundation
 
-// MARK: - Post
+// MARK: - Cats
 
-struct Post: Codable {
+struct Cat: Codable {
     let id: String?
     let url: String?
     let width: Int?
@@ -23,4 +23,4 @@ struct Post: Codable {
     }
 }
 
-typealias Posts = [Post]
+typealias Cats = [Cat]

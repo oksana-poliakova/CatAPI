@@ -17,6 +17,8 @@ enum LabelFontStyle {
 
 final class BaseLabel: UILabel {
     
+    // MARK: - Init
+    
     init(type: LabelFontStyle) {
         super.init(frame: .zero)
         applyLabelFontStyles(type: type)
@@ -25,6 +27,8 @@ final class BaseLabel: UILabel {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    // MARK: - Styles for label
     
     private func applyLabelFontStyles(type: LabelFontStyle) {
         textColor = .black

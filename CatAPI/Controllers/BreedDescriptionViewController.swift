@@ -12,8 +12,9 @@ final class BreedDescriptionViewController: UIViewController {
     
     // MARK: - Properties
     
-    private let pagerView = ImagePagerView()
+    private var pagerView = ImagePagerView()
     private let descriptionView = BreedDescriptionView()
+    var service: ItemsNetworkService? = nil
     
     // MARK: - Init
     
@@ -31,6 +32,15 @@ final class BreedDescriptionViewController: UIViewController {
         super.viewDidLoad()
         
         setupConstraints()
+        loadItems()
+    }
+    
+    private func loadItems() {
+        service?.fetch(completion: { [weak self] items in
+            guard self != nil else { return }
+            
+            self?.pagerView.itemModel = items
+        })
     }
     
     // MARK: - Setup UI
@@ -54,4 +64,3 @@ final class BreedDescriptionViewController: UIViewController {
         ])
     }
 }
-

@@ -9,6 +9,8 @@ import UIKit
 
 final class PhotoCollectionViewCell: UICollectionViewCell {
     
+    // MARK: - Properties
+    
     private var photoImageView = UIImageView()
     
     // MARK: - Init

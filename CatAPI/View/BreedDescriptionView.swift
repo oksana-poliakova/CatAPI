@@ -31,7 +31,7 @@ final class BreedDescriptionView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: - Setup UI
+    // MARK: - Setup Constraints
     
     private func setupConstraints() {
         [titleLabel, idLabel, descriptionLabel, characterLabel, countryLabel, weightLabel, lifeSpanLabel].forEach {
@@ -60,5 +60,5 @@ final class BreedDescriptionView: UIView {
             lifeSpanLabel.topAnchor.constraint(equalTo: weightLabel.bottomAnchor, constant: 10)
         ])
     }
-
 }
+

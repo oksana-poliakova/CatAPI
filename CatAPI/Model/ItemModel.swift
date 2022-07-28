@@ -7,6 +7,8 @@
 
 import Foundation
 
+// MARK: - Item model
+
 struct ItemModel {
     let id: String
     var title: String? = nil
@@ -40,6 +42,16 @@ extension ItemModel {
     init(image: Image, selection: @escaping () -> Void = {}) {
         id = image.id ?? ""
         url = URL(string: image.url ?? "")
+        select = selection
+    }
+}
+
+// MARK: - Cats(or Breed by id)
+
+extension ItemModel {
+    init(cat: Cat, selection: @escaping () -> Void = {}) {
+        id = cat.id ?? ""
+        url = URL(string: cat.url ?? "")
         select = selection
     }
 }
