@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 final class PhotoCollectionViewCell: UICollectionViewCell {
     
@@ -42,7 +43,7 @@ final class PhotoCollectionViewCell: UICollectionViewCell {
     public func configureCell(model: ItemModel) {
         guard let url = model.url else { return }
         
-        photoImageView.load(url: url)
+        photoImageView.kf.setImage(with: url)
     }
 }
 

@@ -115,13 +115,20 @@ extension PhotoGalleryViewController: UICollectionViewDelegateFlowLayout {
     
    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
        return 1
-    }
+   }
 }
 
 // MARK: - UICollectionViewDelegate
 
 extension PhotoGalleryViewController: UICollectionViewDelegate {
-    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if indexPath.row == items.count - 1 {
+            service?.fetch(completion: { [weak self] items in
+                self?.items.append(contentsOf: items)
+                self?.collectionView.reloadData()
+            })
+        }
+    }
 }
 
 

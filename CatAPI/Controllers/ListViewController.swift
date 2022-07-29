@@ -97,7 +97,7 @@ extension ListViewController: UITableViewDelegate {
 extension ListViewController {
     func select(breed: BreedElement) {
         let vc = BreedDescriptionViewController()
-        let service = CatsNetworkServiceAdapter(api: NetworkManager.shared, endpoint: Endpoint.breedByID + breed.id)
+        let service = CatsNetworkServiceAdapter(api: NetworkManager.shared, breedID: breed.id)
         vc.service = service
         show(vc, sender: self)
     }
@@ -108,7 +108,7 @@ extension ListViewController {
 extension ListViewController {
     func select(category: CategoryElement) {
         let vc = PhotoGalleryViewController()
-        let service = ImageNetworkServiceAdapter(api: NetworkManager.shared, endpoint: Endpoint.imageByCategoryID + "\(category.id)")
+        let service = ImageNetworkServiceAdapter(api: NetworkManager.shared, categoryID: "\(category.id)")
         vc.service = service
         show(vc, sender: self)
     }

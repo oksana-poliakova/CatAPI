@@ -12,8 +12,8 @@ enum Endpoint {
     static let images = "/images/search"
     static let breeds = "/breeds"
     static let categories = "/categories"
-    static let imageByCategoryID = images + "?limit=20&page=0&category_id="
-    static let breedByID = images + "?limit=20&page=0&breed_ids="
+    static let imageByCategoryID = images + "?limit=10&page=0&category_id="
+    static let breedByID = images + "?limit=10&page=0&breed_ids="
 }
 
 enum URLProvider {

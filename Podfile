@@ -7,5 +7,6 @@ target 'CatAPI' do
   # Pods for CatAPI
 
     pod 'FSPagerView'
+    pod 'Kingfisher'
 
 end
