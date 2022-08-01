@@ -35,7 +35,6 @@ final class PhotoGalleryViewController: UIViewController {
     
     private let countCells = 3
     private let offset: CGFloat = 1.0
-    private let cellID = "PhotoCollectionViewCell"
     private var items: [ItemModel] = []
     var service: ItemsNetworkService?
     

@@ -10,12 +10,17 @@ import Foundation
 // MARK: - Adapter for getting categories
 
 struct CategoryNetworkServiceAdapter: ItemsNetworkService {
-    let api: NetworkManager
-    let endpoint: String
-    let select: ((CategoryElement) -> Void)?
+    private let api: NetworkManager
+    private let select: ((CategoryElement) -> Void)?
+    private static var page: Int = 0
+    
+    init(api: NetworkManager, select: ((CategoryElement) -> Void)?) {
+        self.api = api
+        self.select = select
+    }
     
     func fetch(completion: @escaping ([ItemModel]) -> ()) {
-        api.fetch(Category.self, endPoint: endpoint) { result in
+        api.fetch(Category.self, endPoint: Endpoint.categories + "\(CategoryNetworkServiceAdapter.page)") { result in
             switch result {
             case let .success(categories):
                 DispatchQueue.mainAsyncIfNeeded {

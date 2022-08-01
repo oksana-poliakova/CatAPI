@@ -24,7 +24,6 @@ class ListViewController: UIViewController {
     
     private var items: [ItemModel] = []
     var service: ItemsNetworkService?
-    private let cellID = "ListTableViewCell"
 
     // MARK: - Init
     
@@ -76,7 +75,7 @@ extension ListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as? ListTableViewCell else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ListTableViewCell", for: indexPath) as? ListTableViewCell else { return UITableViewCell() }
         cell.selectionStyle = .none
         cell.configureCell(item: items[indexPath.row])
         return cell
@@ -87,6 +86,15 @@ extension ListViewController: UITableViewDataSource {
 // MARK: - UITableViewDelegate
 
 extension ListViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row == items.count - 1 {
+            service?.fetch(completion: { [weak self] items in
+                self?.items.append(contentsOf: items)
+                tableView.reloadData()
+            })
+        }
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         items[indexPath.row].select()
     }

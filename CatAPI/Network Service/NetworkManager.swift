@@ -10,8 +10,8 @@ import UIKit
 
 enum Endpoint {
     static let images = "/images/search"
-    static let breeds = "/breeds"
-    static let categories = "/categories"
+    static let breeds = "/breeds?limit=10&page="
+    static let categories = "/categories?limit=10&page="
     static let imageByCategoryID = images + "?limit=10&page=0&category_id="
     static let breedByID = images + "?limit=10&page=0&breed_ids="
 }

@@ -12,8 +12,7 @@ import Foundation
 struct CatsNetworkServiceAdapter: ItemsNetworkService {
     private let api: NetworkManager
     private let breedID: String
-    
-    let page: Int = 0
+    private let page: Int = 0
     
     init(api: NetworkManager, breedID: String) {
         self.api = api
