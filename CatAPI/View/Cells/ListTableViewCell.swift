@@ -50,6 +50,10 @@ class ListTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func layoutSubviews() {
+        listImageView.makeRounded()
+    }
+    
     // MARK: - Configuration
     
     func configureCell(item: ItemModel) {
@@ -63,7 +67,6 @@ class ListTableViewCell: UITableViewCell {
     // MARK: - Setup UI
     
     private func setupUI() {
-        listImageView.layer.cornerRadius = imageHeightAnchor.constant / 2
         stackView.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(stackView)
         
@@ -73,8 +76,8 @@ class ListTableViewCell: UITableViewCell {
             stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -15),
             stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -15),
             
-            imageHeightAnchor,
-            listImageView.widthAnchor.constraint(equalToConstant: imageHeightAnchor.constant)
+            listImageView.heightAnchor.constraint(equalToConstant: 50),
+            listImageView.widthAnchor.constraint(equalTo: listImageView.heightAnchor) 
         ])
     }
 }
