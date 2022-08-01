@@ -23,6 +23,7 @@ struct CategoryNetworkServiceAdapter: ItemsNetworkService {
         api.fetch(Category.self, endPoint: Endpoint.categories + "\(CategoryNetworkServiceAdapter.page)") { result in
             switch result {
             case let .success(categories):
+                CategoryNetworkServiceAdapter.page += 1
                 DispatchQueue.mainAsyncIfNeeded {
                     completion(categories.map({ categoryObject in
                         ItemModel(category: categoryObject) {

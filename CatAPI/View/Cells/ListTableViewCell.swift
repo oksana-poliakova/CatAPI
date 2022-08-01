@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 // MARK: - Basic cell for Breeds and Categories
 
@@ -16,10 +17,22 @@ class ListTableViewCell: UITableViewCell {
     private lazy var titleLabel: UILabel = {
         let title = UILabel()
         title.font = UIFont.boldSystemFont(ofSize: 16)
-        title.textColor = .black
-        title.translatesAutoresizingMaskIntoConstraints = false
+        title.textColor = .blue
         return title
     }()
+    
+    private lazy var listImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.clipsToBounds = true
+        imageView.contentMode = .scaleToFill
+        return imageView
+    }()
+    
+    private lazy var stackView = UIStackView(arrangedSubviews: [listImageView, titleLabel],
+                                            axis: .horizontal,
+                                            spacing: 10,
+                                            distribution: .fill,
+                                            aligment: .fill)
 
     // MARK: - Init
 
@@ -37,21 +50,28 @@ class ListTableViewCell: UITableViewCell {
     
     func configureCell(item: ItemModel) {
         titleLabel.text = item.title
+        listImageView.isHidden = item.type == .breed ? false : true
+        if let url = item.url {
+            listImageView.kf.setImage(with: url)
+        }
     }
     
     // MARK: - Setup UI
     
     private func setupUI() {
-        contentView.addSubview(titleLabel)
-        
-        titleLabel.textColor = .blue
-        titleLabel.font = UIFont.boldSystemFont(ofSize: 16)
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        contentView.addSubview(stackView)
         
         NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 15),
-            titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 15),
-            titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -15),
-            titleLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -15)
+            stackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 15),
+            stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 15),
+            stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -15),
+            stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -15),
+            
+            listImageView.heightAnchor.constraint(equalToConstant: 50),
+            listImageView.widthAnchor.constraint(equalToConstant: 50)
         ])
+        
+        listImageView.layer.cornerRadius = 50 / 2
     }
 }

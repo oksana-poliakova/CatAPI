@@ -7,6 +7,7 @@
 
 import UIKit
 import FSPagerView
+import Kingfisher
 
 class ImagePagerView: UIView {
     
@@ -75,7 +76,7 @@ extension ImagePagerView: FSPagerViewDataSource {
         guard let url = itemModel[index].url else { return FSPagerViewCell() }
         
         let cell = pagerView.dequeueReusableCell(withReuseIdentifier: "cell", at: index)
-        cell.imageView?.load(url: url)
+        cell.imageView?.kf.setImage(with: url)
         cell.imageView?.contentMode = .scaleAspectFit
         return cell
     }

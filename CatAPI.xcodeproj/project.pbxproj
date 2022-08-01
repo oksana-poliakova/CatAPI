@@ -19,6 +19,7 @@
 		A11B88B3287C8B7800D3A977 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11B88B2287C8B7800D3A977 /* TabBarViewController.swift */; };
 		A11B88D2287DBA2400D3A977 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11B88D1287DBA2400D3A977 /* Category.swift */; };
 		A11B88D6287DC06300D3A977 /* Breed.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11B88D5287DC06300D3A977 /* Breed.swift */; };
+		A12931CD28981D1000CBF049 /* UIStackView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12931CC28981D1000CBF049 /* UIStackView+Extensions.swift */; };
 		A13BFF91288FFAA8000B0403 /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13BFF90288FFAA8000B0403 /* ListTableViewCell.swift */; };
 		A13BFF93288FFADC000B0403 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13BFF92288FFADC000B0403 /* ListViewController.swift */; };
 		A13BFF97288FFEF8000B0403 /* ItemsNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13BFF96288FFEF8000B0403 /* ItemsNetworkService.swift */; };
@@ -27,7 +28,6 @@
 		A13BFF9D288FFF4B000B0403 /* CategoryNetworkServiceAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13BFF9C288FFF4B000B0403 /* CategoryNetworkServiceAdapter.swift */; };
 		A13BFFA02890081C000B0403 /* DispatchQueue+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13BFF9F2890081C000B0403 /* DispatchQueue+Extensions.swift */; };
 		A13BFFA22891595B000B0403 /* ImageNetworkServiceAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13BFFA12891595B000B0403 /* ImageNetworkServiceAdapter.swift */; };
-		A13BFFA528915A4D000B0403 /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13BFFA428915A4D000B0403 /* UIImageView+Extensions.swift */; };
 		A1460FD328929B5B00AF1E93 /* BreedDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1460FD228929B5B00AF1E93 /* BreedDescriptionViewController.swift */; };
 		A1460FD72892A3DB00AF1E93 /* ImagePagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1460FD62892A3DB00AF1E93 /* ImagePagerView.swift */; };
 		A1460FD92892A5D500AF1E93 /* BreedDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1460FD82892A5D500AF1E93 /* BreedDescriptionView.swift */; };
@@ -51,6 +51,7 @@
 		A11B88B2287C8B7800D3A977 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		A11B88D1287DBA2400D3A977 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		A11B88D5287DC06300D3A977 /* Breed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Breed.swift; sourceTree = "<group>"; };
+		A12931CC28981D1000CBF049 /* UIStackView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Extensions.swift"; sourceTree = "<group>"; };
 		A13BFF90288FFAA8000B0403 /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
 		A13BFF92288FFADC000B0403 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		A13BFF96288FFEF8000B0403 /* ItemsNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsNetworkService.swift; sourceTree = "<group>"; };
@@ -59,7 +60,6 @@
 		A13BFF9C288FFF4B000B0403 /* CategoryNetworkServiceAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryNetworkServiceAdapter.swift; sourceTree = "<group>"; };
 		A13BFF9F2890081C000B0403 /* DispatchQueue+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+Extensions.swift"; sourceTree = "<group>"; };
 		A13BFFA12891595B000B0403 /* ImageNetworkServiceAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageNetworkServiceAdapter.swift; sourceTree = "<group>"; };
-		A13BFFA428915A4D000B0403 /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
 		A1460FD228929B5B00AF1E93 /* BreedDescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedDescriptionViewController.swift; sourceTree = "<group>"; };
 		A1460FD62892A3DB00AF1E93 /* ImagePagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePagerView.swift; sourceTree = "<group>"; };
 		A1460FD82892A5D500AF1E93 /* BreedDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedDescriptionView.swift; sourceTree = "<group>"; };
@@ -239,7 +239,7 @@
 			isa = PBXGroup;
 			children = (
 				A13BFF9F2890081C000B0403 /* DispatchQueue+Extensions.swift */,
-				A13BFFA428915A4D000B0403 /* UIImageView+Extensions.swift */,
+				A12931CC28981D1000CBF049 /* UIStackView+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -366,7 +366,7 @@
 				A11B88992879C6FB00D3A977 /* Cats.swift in Sources */,
 				A1460FD328929B5B00AF1E93 /* BreedDescriptionViewController.swift in Sources */,
 				A13BFF91288FFAA8000B0403 /* ListTableViewCell.swift in Sources */,
-				A13BFFA528915A4D000B0403 /* UIImageView+Extensions.swift in Sources */,
+				A12931CD28981D1000CBF049 /* UIStackView+Extensions.swift in Sources */,
 				A11B88B3287C8B7800D3A977 /* TabBarViewController.swift in Sources */,
 				A11B88D6287DC06300D3A977 /* Breed.swift in Sources */,
 				A13BFFA02890081C000B0403 /* DispatchQueue+Extensions.swift in Sources */,
