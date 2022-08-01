@@ -33,6 +33,10 @@ class ListTableViewCell: UITableViewCell {
                                             spacing: 10,
                                             distribution: .fill,
                                             aligment: .fill)
+    
+    private lazy var imageHeightAnchor: NSLayoutConstraint = {
+        listImageView.heightAnchor.constraint(equalToConstant: 50)
+    }()
 
     // MARK: - Init
 
@@ -59,6 +63,7 @@ class ListTableViewCell: UITableViewCell {
     // MARK: - Setup UI
     
     private func setupUI() {
+        listImageView.layer.cornerRadius = imageHeightAnchor.constant / 2
         stackView.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(stackView)
         
@@ -68,10 +73,8 @@ class ListTableViewCell: UITableViewCell {
             stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -15),
             stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -15),
             
-            listImageView.heightAnchor.constraint(equalToConstant: 50),
-            listImageView.widthAnchor.constraint(equalToConstant: 50)
+            imageHeightAnchor,
+            listImageView.widthAnchor.constraint(equalToConstant: imageHeightAnchor.constant)
         ])
-        
-        listImageView.layer.cornerRadius = 50 / 2
     }
 }
