@@ -1,8 +1,8 @@
 //
-//  BreedDescriptionViewController.swift
+//  BreedDescriptionVC.swift
 //  CatAPI
 //
-//  Created by Oksana Poliakova on 28.07.2022.
+//  Created by Oksana Poliakova on 02.08.2022.
 //
 
 import UIKit
@@ -14,12 +14,14 @@ final class BreedDescriptionViewController: UIViewController {
     
     private var pagerView = ImagePagerView()
     private let descriptionView = BreedDescriptionView()
-    var service: ItemsNetworkService? = nil
+    private var viewModel: BreedDescriptionViewModel?
     
     // MARK: - Init
     
-    init() {
+    init(viewModel: BreedDescriptionViewModel?) {
         super.init(nibName: nil, bundle: nil)
+        
+        self.viewModel = viewModel
     }
     
     required init?(coder: NSCoder) {
@@ -32,21 +34,12 @@ final class BreedDescriptionViewController: UIViewController {
         super.viewDidLoad()
         
         setupConstraints()
-        loadItems()
-    }
-    
-    private func loadItems() {
-        service?.fetch(completion: { [weak self] items in
-            guard self != nil else { return }
-            
-            self?.pagerView.itemModel = items
-        })
+        viewModel?.fetchItems()
     }
     
     // MARK: - Setup UI
     
     private func setupConstraints() {
-        
         [pagerView, descriptionView].forEach {
             $0.translatesAutoresizingMaskIntoConstraints = false
             view.addSubview($0)
@@ -62,5 +55,11 @@ final class BreedDescriptionViewController: UIViewController {
             descriptionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             descriptionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
         ])
+    }
+    
+    // MARK: - Load items
+    
+    func loadItems(breed: Breed) {
+        pagerView.itemModel = breed
     }
 }

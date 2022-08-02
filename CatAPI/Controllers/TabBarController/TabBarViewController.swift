@@ -26,25 +26,28 @@ class TabBarViewController: UITabBarController {
 
         view.backgroundColor = .white
         
-        let breedsVC = ListViewController()
-        let breedServiceAdapter = BreedNetworkServiceAdapter(api: NetworkManager.shared) { [weak breedsVC] breed in
-            breedsVC?.select(breed: breed)
-        }
+        let helper = BreedNetworkServiceHelper(api: NetworkManager.shared)
+        let viewModel = BreedListViewModel(helper: helper)
+        let breedsVC = BreedListViewController(viewModel: viewModel)
+//        viewModel.rootViewController = breedsVC
+//        let breedServiceAdapter = BreedNetworkServiceAdapter(api: NetworkManager.shared) { [weak breedsVC] breed in
+//            breedsVC?.select(breed: breed)
+//        }
     
-        breedsVC.service = breedServiceAdapter
+//        breedsVC.service = breedServiceAdapter
         breedsVC.tabBarItem = UITabBarItem(title: "Breeds", image: UIImage(named: "cat"), selectedImage: nil)
         breedsVC.title = "List of Breeds"
         
-        let categoriesVC = ListViewController()
-        let categoryServiceAdapter = CategoryNetworkServiceAdapter(api: NetworkManager.shared, select: { [weak categoriesVC] category in
-            categoriesVC?.select(category: category)
-        })
+//        let categoriesVC = ListViewController()
+//        let categoryServiceAdapter = CategoryNetworkServiceAdapter(api: NetworkManager.shared, select: { [weak categoriesVC] category in
+//            categoriesVC?.select(category: category)
+//        })
         
-        categoriesVC.service = categoryServiceAdapter
+//        categoriesVC.service = categoryServiceAdapter
 
-        categoriesVC.tabBarItem = UITabBarItem(title: "Categories", image: UIImage(named: "paw"), selectedImage: nil)
-        categoriesVC.title = "List of Categories"
+//        categoriesVC.tabBarItem = UITabBarItem(title: "Categories", image: UIImage(named: "paw"), selectedImage: nil)
+//        categoriesVC.title = "List of Categories"
         
-        setViewControllers([UINavigationController(rootViewController: breedsVC), UINavigationController(rootViewController: categoriesVC)], animated: true)
+        setViewControllers([UINavigationController(rootViewController: breedsVC)], animated: true)
     }
 }

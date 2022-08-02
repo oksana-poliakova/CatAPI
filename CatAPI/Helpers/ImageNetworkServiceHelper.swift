@@ -9,7 +9,7 @@ import Foundation
 
 // MARK: - Adapter for getting images
 
-struct ImageNetworkServiceAdapter: ItemsNetworkService {
+struct ImageNetworkServiceHelper {
     private let api: NetworkManager
     private let categoryID: String
     private static var page: Int = 0
@@ -19,15 +19,13 @@ struct ImageNetworkServiceAdapter: ItemsNetworkService {
         self.categoryID = categoryID
     }
     
-    func fetch(completion: @escaping ([ItemModel]) -> ()) {
-        api.fetch([Image].self, endPoint: Endpoint.images + "?limit=10&page=\(ImageNetworkServiceAdapter.page)&category_id=\(categoryID)") { result in
+    func fetch(completion: @escaping ([Image]) -> ()) {
+        api.fetch([Image].self, endPoint: Endpoint.images + "?limit=10&page=\(ImageNetworkServiceHelper.page)&category_id=\(categoryID)") { result in
             switch result {
             case let .success(images):
-                ImageNetworkServiceAdapter.page += 1
+                ImageNetworkServiceHelper.page += 1
                 DispatchQueue.mainAsyncIfNeeded {
-                    completion(images.map({ image in
-                        ItemModel(image: image)
-                    }))
+                    completion(images)
                 }
             case let .failure(error):
                 print(error)

@@ -42,6 +42,14 @@ final class BreedDescriptionView: UIView {
                 $0.leadingAnchor.constraint(equalTo: leadingAnchor),
                 $0.trailingAnchor.constraint(equalTo: trailingAnchor)
             ])
+            
+            titleLabel.text = "title"
+            idLabel.text = "id"
+            descriptionLabel.text = "description"
+            characterLabel.text = "character"
+            countryLabel.text = "country"
+            weightLabel.text = "weight"
+            lifeSpanLabel.text = "14-16 years"
         }
         
         NSLayoutConstraint.activate([
