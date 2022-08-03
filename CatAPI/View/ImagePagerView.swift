@@ -26,7 +26,7 @@ class ImagePagerView: UIView {
         return pageControl
     }()
     
-    public var itemModel: [BreedElement] = [] {
+    public var itemModel: [Cat] = [] {
         didSet {
             pagerView.reloadData()
         }
@@ -73,7 +73,7 @@ extension ImagePagerView: FSPagerViewDataSource {
     }
     
     func pagerView(_ pagerView: FSPagerView, cellForItemAt index: Int) -> FSPagerViewCell {
-        guard let url = URL(string: itemModel[index].image?.url ?? "") else { return FSPagerViewCell() }
+        guard let url = URL(string: itemModel[index].url ?? "") else { return FSPagerViewCell() }
         
         let cell = pagerView.dequeueReusableCell(withReuseIdentifier: "cell", at: index)
         cell.imageView?.kf.setImage(with: url)

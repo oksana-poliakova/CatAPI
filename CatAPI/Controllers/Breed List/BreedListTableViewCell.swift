@@ -8,8 +8,6 @@
 import UIKit
 import Kingfisher
 
-// MARK: - Basic cell for Breeds and Categories
-
 class BreedListTableViewCell: UITableViewCell {
     
     // MARK: - Properties
@@ -37,8 +35,6 @@ class BreedListTableViewCell: UITableViewCell {
     private lazy var imageHeightAnchor: NSLayoutConstraint = {
         listImageView.heightAnchor.constraint(equalToConstant: 50)
     }()
-    
-    private var breed: BreedElement?
 
     // MARK: - Init
 
@@ -59,8 +55,8 @@ class BreedListTableViewCell: UITableViewCell {
     // MARK: - Configuration
     
     func configureCell(item: BreedElement) {
-        titleLabel.text = breed?.name
-        let url = URL(string: breed?.image?.url ?? "")
+        titleLabel.text = item.name
+        let url = URL(string: item.image?.url ?? "")
         listImageView.kf.setImage(with: url)
     }
     

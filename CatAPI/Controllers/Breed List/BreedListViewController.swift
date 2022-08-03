@@ -16,13 +16,11 @@ final class BreedListViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.register(ListTableViewCell.self, forCellReuseIdentifier: "BreedListTableViewCell")
+        tableView.register(BreedListTableViewCell.self, forCellReuseIdentifier: "BreedListTableViewCell")
         return tableView
     }()
     
     private var viewModel: BreedListViewModel?
-    private var breeds: [BreedElement] = []
-    
 
     // MARK: - Init
     
@@ -46,6 +44,10 @@ final class BreedListViewController: UIViewController {
         setupUI()
     }
     
+    func reloadData() {
+        tableView.reloadData()
+    }
+    
     // MARK: - Setup UI
     
     private func setupUI() {
@@ -64,13 +66,18 @@ final class BreedListViewController: UIViewController {
 
 extension BreedListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        breeds.count
+        viewModel?.countOfItems() ?? 0
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "BreedListTableViewCell", for: indexPath) as? BreedListTableViewCell else { return UITableViewCell() }
-        cell.selectionStyle = .none
-        cell.configureCell(item: breeds[indexPath.row])
+        guard
+            let viewModel = viewModel,
+            let cell = tableView.dequeueReusableCell(withIdentifier: "BreedListTableViewCell", for: indexPath) as? BreedListTableViewCell
+        else {
+            return UITableViewCell()
+        }
+        
+        cell.configureCell(item: viewModel.indexPerItem(indexPath: indexPath))
         return cell
     }
 
@@ -80,28 +87,23 @@ extension BreedListViewController: UITableViewDataSource {
 
 extension BreedListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if indexPath.row == breeds.count - 1 {
-//            service?.fetch(completion: { [weak self] items in
-//                self?.items.append(contentsOf: items)
-//                tableView.reloadData()
-//            })
+        if indexPath.row == (viewModel?.countOfItems() ?? 0) - 1 {
+            viewModel?.fetchItems(pagination: true)
         }
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-       
+        guard let breed = viewModel?.indexPerItem(indexPath: indexPath) else { return }
+        
+        let helper = CatsNetworkServiceHelper(api: NetworkManager.shared,
+                                              breedID: breed.id)
+        let viewModel = BreedDescriptionViewModel(breed: breed, helper: helper)
+        let vc = BreedDescriptionViewController(viewModel: viewModel)
+        viewModel.rootViewController = vc
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 
-// MARK: - Select Breed
 
-//extension ListViewController {
-//    func select(breed: BreedElement) {
-//        let vc = BreedDescriptionViewController()
-//        let service = CatsNetworkServiceAdapter(api: NetworkManager.shared, breedID: breed.id)
-//        vc.service = service
-//        show(vc, sender: self)
-//    }
-//}
 
 

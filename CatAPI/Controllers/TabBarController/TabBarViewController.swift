@@ -29,6 +29,7 @@ class TabBarViewController: UITabBarController {
         let helper = BreedNetworkServiceHelper(api: NetworkManager.shared)
         let viewModel = BreedListViewModel(helper: helper)
         let breedsVC = BreedListViewController(viewModel: viewModel)
+        viewModel.rootViewController = breedsVC
 //        viewModel.rootViewController = breedsVC
 //        let breedServiceAdapter = BreedNetworkServiceAdapter(api: NetworkManager.shared) { [weak breedsVC] breed in
 //            breedsVC?.select(breed: breed)

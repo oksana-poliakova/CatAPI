@@ -31,6 +31,16 @@ final class BreedDescriptionView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func configureDescriptionView(breed: BreedElement) {
+        titleLabel.text = breed.name
+        idLabel.text = breed.id
+        descriptionLabel.text = breed.breedDescription
+        characterLabel.text = breed.temperament
+        countryLabel.text = breed.countryCode
+        weightLabel.text = "\(breed.weight?.imperial ?? "") kg"
+        lifeSpanLabel.text = "\(breed.lifeSpan ?? "") years"
+    }
+    
     // MARK: - Setup Constraints
     
     private func setupConstraints() {
@@ -39,8 +49,8 @@ final class BreedDescriptionView: UIView {
             addSubview($0)
             
             NSLayoutConstraint.activate([
-                $0.leadingAnchor.constraint(equalTo: leadingAnchor),
-                $0.trailingAnchor.constraint(equalTo: trailingAnchor)
+                $0.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+                $0.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16)
             ])
             
             titleLabel.text = "title"
@@ -55,17 +65,17 @@ final class BreedDescriptionView: UIView {
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: topAnchor),
             
-            idLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10),
+            idLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 5),
             
-            descriptionLabel.topAnchor.constraint(equalTo: idLabel.bottomAnchor, constant: 10),
+            descriptionLabel.topAnchor.constraint(equalTo: idLabel.bottomAnchor, constant: 5),
             
-            characterLabel.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 20),
+            characterLabel.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 10),
             
-            countryLabel.topAnchor.constraint(equalTo: characterLabel.bottomAnchor, constant: 10),
+            countryLabel.topAnchor.constraint(equalTo: characterLabel.bottomAnchor, constant: 5),
             
-            weightLabel.topAnchor.constraint(equalTo: countryLabel.bottomAnchor, constant: 10),
+            weightLabel.topAnchor.constraint(equalTo: countryLabel.bottomAnchor, constant: 5),
             
-            lifeSpanLabel.topAnchor.constraint(equalTo: weightLabel.bottomAnchor, constant: 10)
+            lifeSpanLabel.topAnchor.constraint(equalTo: weightLabel.bottomAnchor, constant: 5)
         ])
     }
 }

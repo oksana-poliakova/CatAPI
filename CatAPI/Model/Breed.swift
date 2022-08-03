@@ -10,7 +10,7 @@ import Foundation
 // MARK: - BreedElement
 
 struct BreedElement: Codable {
-    let weight: Weight?
+    var weight: Weight?
     let id: String
     let name: String?
     let cfaURL: String?
@@ -21,7 +21,7 @@ struct BreedElement: Codable {
     let countryCodes: String?
     let countryCode: String?
     let breedDescription: String?
-    let lifeSpan: String?
+    var lifeSpan: String?
     let indoor: Int?
     let lap: Int?
     let altNames: String?

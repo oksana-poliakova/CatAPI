@@ -9,20 +9,27 @@ import Foundation
 
 final class BreedDescriptionViewModel {
     
-    private var breeds: [BreedElement] = []
-    private let helper: BreedNetworkServiceHelper
+    private var cats: [Cat] = []
+    private var breed: BreedElement
+    private let helper: CatsNetworkServiceHelper
     weak var rootViewController: BreedDescriptionViewController? = nil
+    private static var page: Int = 0
     
-    init(helper: BreedNetworkServiceHelper) {
+    init(breed: BreedElement, helper: CatsNetworkServiceHelper) {
         self.helper = helper
+        self.breed = breed
     }
     
     // MARK: - Fetch data
     
+    func configureBreedDescription() {
+        rootViewController?.configureBreedDescription(breed: breed)
+    }
+    
     func fetchItems() {
-        helper.fetch { [weak self] breed in
-            self?.breeds = breed
-            self?.rootViewController?.loadItems(breed: breed)
+        helper.fetch { [weak self] cats in
+            self?.cats = cats
+            self?.rootViewController?.loadItems(cat: cats)
         }
     }
 }

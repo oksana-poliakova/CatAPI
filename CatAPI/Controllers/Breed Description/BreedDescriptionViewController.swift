@@ -34,6 +34,7 @@ final class BreedDescriptionViewController: UIViewController {
         super.viewDidLoad()
         
         setupConstraints()
+        viewModel?.configureBreedDescription()
         viewModel?.fetchItems()
     }
     
@@ -59,7 +60,11 @@ final class BreedDescriptionViewController: UIViewController {
     
     // MARK: - Load items
     
-    func loadItems(breed: Breed) {
-        pagerView.itemModel = breed
+    func configureBreedDescription(breed: BreedElement) {
+        descriptionView.configureDescriptionView(breed: breed)
+    }
+    
+    func loadItems(cat: Cats) {
+        pagerView.itemModel = cat
     }
 }
