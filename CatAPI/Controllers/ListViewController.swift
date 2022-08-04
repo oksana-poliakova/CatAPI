@@ -104,9 +104,11 @@ extension ListViewController: UITableViewDelegate {
 
 extension ListViewController {
     func select(breed: BreedElement) {
-        let vc = BreedDescriptionViewController()
-        let service = CatsNetworkServiceAdapter(api: NetworkManager.shared, breedID: breed.id)
-        vc.service = service
+        let helper = CatsNetworkServiceHelper(api: NetworkManager.shared,
+                                              breedID: breed.id)
+        let viewModel = BreedDescriptionViewModel(breed: breed, helper: helper)
+        let vc = BreedDescriptionViewController(viewModel: viewModel)
+        viewModel.rootViewController = vc
         show(vc, sender: self)
     }
 }

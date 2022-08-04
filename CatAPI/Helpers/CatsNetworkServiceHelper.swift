@@ -9,7 +9,7 @@ import Foundation
 
 // MARK: - Adapter for getting cats
 
-struct CatsNetworkServiceAdapter: ItemsNetworkService {
+struct CatsNetworkServiceHelper {
     private let api: NetworkManager
     private let breedID: String
     private let page: Int = 0
@@ -19,14 +19,12 @@ struct CatsNetworkServiceAdapter: ItemsNetworkService {
         self.breedID = breedID
     }
     
-    func fetch(completion: @escaping ([ItemModel]) -> ()) {
+    func fetch(completion: @escaping (Cats) -> ()) {
         api.fetch(Cats.self, endPoint: Endpoint.images + "?limit=10&page=\(page)&breed_ids=\(breedID)") { result in
             switch result {
             case let .success(cats):
                 DispatchQueue.mainAsyncIfNeeded {
-                    completion(cats.map({ cat in
-                        ItemModel(cat: cat)
-                    }))
+                    completion(cats)
                 }
             case let .failure(error):
                 print(error)

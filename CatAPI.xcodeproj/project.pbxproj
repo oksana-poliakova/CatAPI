@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		5D250AA7A0A6992B7DF42A1B /* Pods_CatAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 627B4683D75E1C13DBA37FE9 /* Pods_CatAPI.framework */; };
+		8A8F1DC3289C1DD5008485D4 /* BreedDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8F1DBE289C1DD5008485D4 /* BreedDescriptionViewController.swift */; };
+		8A8F1DC4289C1DD5008485D4 /* BreedDescriptionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8F1DBF289C1DD5008485D4 /* BreedDescriptionViewModel.swift */; };
+		8A8F1DCB289C1E19008485D4 /* CatsNetworkServiceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8F1DC7289C1E19008485D4 /* CatsNetworkServiceHelper.swift */; };
 		A11B88832879C12800D3A977 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11B88822879C12800D3A977 /* AppDelegate.swift */; };
 		A11B88852879C12800D3A977 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11B88842879C12800D3A977 /* SceneDelegate.swift */; };
 		A11B888C2879C12A00D3A977 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A11B888B2879C12A00D3A977 /* Assets.xcassets */; };
@@ -29,16 +32,17 @@
 		A13BFF9D288FFF4B000B0403 /* CategoryNetworkServiceAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13BFF9C288FFF4B000B0403 /* CategoryNetworkServiceAdapter.swift */; };
 		A13BFFA02890081C000B0403 /* DispatchQueue+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13BFF9F2890081C000B0403 /* DispatchQueue+Extensions.swift */; };
 		A13BFFA22891595B000B0403 /* ImageNetworkServiceAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13BFFA12891595B000B0403 /* ImageNetworkServiceAdapter.swift */; };
-		A1460FD328929B5B00AF1E93 /* BreedDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1460FD228929B5B00AF1E93 /* BreedDescriptionViewController.swift */; };
 		A1460FD72892A3DB00AF1E93 /* ImagePagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1460FD62892A3DB00AF1E93 /* ImagePagerView.swift */; };
 		A1460FD92892A5D500AF1E93 /* BreedDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1460FD82892A5D500AF1E93 /* BreedDescriptionView.swift */; };
 		A1460FDB2892B40400AF1E93 /* BaseLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1460FDA2892B40400AF1E93 /* BaseLabel.swift */; };
-		A1460FDD2892DB1E00AF1E93 /* CatsNetworkServiceAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1460FDC2892DB1E00AF1E93 /* CatsNetworkServiceAdapter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		09E3BA6DFF237571682E3E8D /* Pods-CatAPI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CatAPI.release.xcconfig"; path = "Target Support Files/Pods-CatAPI/Pods-CatAPI.release.xcconfig"; sourceTree = "<group>"; };
 		627B4683D75E1C13DBA37FE9 /* Pods_CatAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CatAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8A8F1DBE289C1DD5008485D4 /* BreedDescriptionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreedDescriptionViewController.swift; sourceTree = "<group>"; };
+		8A8F1DBF289C1DD5008485D4 /* BreedDescriptionViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreedDescriptionViewModel.swift; sourceTree = "<group>"; };
+		8A8F1DC7289C1E19008485D4 /* CatsNetworkServiceHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CatsNetworkServiceHelper.swift; sourceTree = "<group>"; };
 		A11B887F2879C12800D3A977 /* CatAPI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CatAPI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A11B88822879C12800D3A977 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A11B88842879C12800D3A977 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -62,11 +66,9 @@
 		A13BFF9C288FFF4B000B0403 /* CategoryNetworkServiceAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryNetworkServiceAdapter.swift; sourceTree = "<group>"; };
 		A13BFF9F2890081C000B0403 /* DispatchQueue+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+Extensions.swift"; sourceTree = "<group>"; };
 		A13BFFA12891595B000B0403 /* ImageNetworkServiceAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageNetworkServiceAdapter.swift; sourceTree = "<group>"; };
-		A1460FD228929B5B00AF1E93 /* BreedDescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedDescriptionViewController.swift; sourceTree = "<group>"; };
 		A1460FD62892A3DB00AF1E93 /* ImagePagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePagerView.swift; sourceTree = "<group>"; };
 		A1460FD82892A5D500AF1E93 /* BreedDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedDescriptionView.swift; sourceTree = "<group>"; };
 		A1460FDA2892B40400AF1E93 /* BaseLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseLabel.swift; sourceTree = "<group>"; };
-		A1460FDC2892DB1E00AF1E93 /* CatsNetworkServiceAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsNetworkServiceAdapter.swift; sourceTree = "<group>"; };
 		E4E1167757FB92DDC7112807 /* Pods-CatAPI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CatAPI.debug.xcconfig"; path = "Target Support Files/Pods-CatAPI/Pods-CatAPI.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -89,6 +91,24 @@
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
+		};
+		8A8F1DBD289C1DD5008485D4 /* Breed Description */ = {
+			isa = PBXGroup;
+			children = (
+				8A8F1DBE289C1DD5008485D4 /* BreedDescriptionViewController.swift */,
+				8A8F1DBF289C1DD5008485D4 /* BreedDescriptionViewModel.swift */,
+			);
+			path = "Breed Description";
+			sourceTree = "<group>";
+		};
+		8A8F1DC5289C1E19008485D4 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				8A8F1DC7289C1E19008485D4 /* CatsNetworkServiceHelper.swift */,
+			);
+			name = Helpers;
+			path = CatAPI/Helpers;
+			sourceTree = SOURCE_ROOT;
 		};
 		90C0D7E232788C29060CC286 /* Pods */ = {
 			isa = PBXGroup;
@@ -120,6 +140,7 @@
 		A11B88812879C12800D3A977 /* CatAPI */ = {
 			isa = PBXGroup;
 			children = (
+				8A8F1DC5289C1E19008485D4 /* Helpers */,
 				A11B88A22879CC2000D3A977 /* Application */,
 				A11B88AA287C0FB700D3A977 /* Network Service */,
 				A13BFF95288FFEC7000B0403 /* Service */,
@@ -148,10 +169,10 @@
 		A11B889F2879CB3400D3A977 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				8A8F1DBD289C1DD5008485D4 /* Breed Description */,
 				A11B88B1287C8B5D00D3A977 /* TabBarController */,
 				A13BFF92288FFADC000B0403 /* ListViewController.swift */,
 				A11B88AD287C789400D3A977 /* PhotoGalleryViewController.swift */,
-				A1460FD228929B5B00AF1E93 /* BreedDescriptionViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -224,7 +245,6 @@
 				A13BFF9A288FFF3C000B0403 /* BreedNetworkServiceAdapter.swift */,
 				A13BFF9C288FFF4B000B0403 /* CategoryNetworkServiceAdapter.swift */,
 				A13BFFA12891595B000B0403 /* ImageNetworkServiceAdapter.swift */,
-				A1460FDC2892DB1E00AF1E93 /* CatsNetworkServiceAdapter.swift */,
 			);
 			path = Adapters;
 			sourceTree = "<group>";
@@ -368,7 +388,6 @@
 				A11B88AE287C789400D3A977 /* PhotoGalleryViewController.swift in Sources */,
 				A11B88992879C6FB00D3A977 /* Cats.swift in Sources */,
 				A12931CF28983B0900CBF049 /* UIImageView+Extensions.swift in Sources */,
-				A1460FD328929B5B00AF1E93 /* BreedDescriptionViewController.swift in Sources */,
 				A13BFF91288FFAA8000B0403 /* ListTableViewCell.swift in Sources */,
 				A12931CD28981D1000CBF049 /* UIStackView+Extensions.swift in Sources */,
 				A11B88B3287C8B7800D3A977 /* TabBarViewController.swift in Sources */,
@@ -380,9 +399,11 @@
 				A13BFF99288FFF26000B0403 /* ItemModel.swift in Sources */,
 				A11B88B0287C7AED00D3A977 /* PhotoCollectionViewCell.swift in Sources */,
 				A11B88D2287DBA2400D3A977 /* Category.swift in Sources */,
+				8A8F1DC4289C1DD5008485D4 /* BreedDescriptionViewModel.swift in Sources */,
 				A1460FD72892A3DB00AF1E93 /* ImagePagerView.swift in Sources */,
+				8A8F1DC3289C1DD5008485D4 /* BreedDescriptionViewController.swift in Sources */,
 				A13BFF93288FFADC000B0403 /* ListViewController.swift in Sources */,
-				A1460FDD2892DB1E00AF1E93 /* CatsNetworkServiceAdapter.swift in Sources */,
+				8A8F1DCB289C1E19008485D4 /* CatsNetworkServiceHelper.swift in Sources */,
 				A13BFF9D288FFF4B000B0403 /* CategoryNetworkServiceAdapter.swift in Sources */,
 				A1460FD92892A5D500AF1E93 /* BreedDescriptionView.swift in Sources */,
 			);
