@@ -1,0 +1,16 @@
+*~
+.DS_Store
+Pods
+*.xcbkptlist
+IDEWorkspaceChecks.plist
+Podfile.lock
+WorkspaceSettings.xcsettings
+UserInterfaceState.xcuserstate
+xcschememanagement.plist
+contents.xcworkspacedata
+Trade Union.xcscheme
+BeMove.xcscheme
+IDEFindNavigatorScopes.plist
+fastlane/README.md
+fastlane/report.xml
+FailureDiffs
